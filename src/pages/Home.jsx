@@ -15,11 +15,11 @@ function Home() {
  <Header/>
  <HeroSection/>
  <AboutSection/>
- <WhyChooseUs/>
- <ProjectSection/>
- <BlogFAQSection/>
  <ServiceSection/>
+ <ProjectSection/>
+ <WhyChooseUs/>
  <TestimonialSection/>
+ <BlogFAQSection/>
  <Footer/>
  </>
   )

@@ -72,7 +72,7 @@ const BlogFAQSection = () => {
           {/* FAQ Section */}
           <div className="space-y-8">
             <div>
-              <p className="text-orange-500 text-sm font-semibold tracking-wider uppercase mb-2">
+              <p className="text-green-500 text-sm font-semibold tracking-wider uppercase mb-2">
                 Have Any Questions?
               </p>
               <h2 className="text-4xl font-bold text-gray-800 mb-6">
@@ -93,7 +93,7 @@ const BlogFAQSection = () => {
                     onClick={() => toggleQuestion(index)}
                     className={`w-full px-6 py-4 text-left flex items-center justify-between transition-all duration-300 ${
                       activeQuestion === index 
-                        ? 'bg-orange-500 text-white' 
+                        ? 'bg-green-500 text-white' 
                         : 'bg-white text-gray-800 hover:bg-gray-50'
                     }`}
                   >
@@ -119,7 +119,7 @@ const BlogFAQSection = () => {
                           />
                           <div>
                             <p className="text-sm text-gray-600">Need more help?</p>
-                            <button className="text-orange-500 font-medium hover:text-orange-600 transition-colors">
+                            <button className="text-green-500 font-medium hover:text-green-600 transition-colors">
                               Contact our team →
                             </button>
                           </div>
@@ -135,7 +135,7 @@ const BlogFAQSection = () => {
           {/* Blog Section */}
           <div className="space-y-8">
             <div>
-              <p className="text-orange-500 text-sm font-semibold tracking-wider uppercase mb-2">
+              <p className="text-green-500 text-sm font-semibold tracking-wider uppercase mb-2">
                 Our Blog and News
               </p>
               <h2 className="text-4xl font-bold text-gray-800 mb-6">
@@ -151,10 +151,10 @@ const BlogFAQSection = () => {
                 >
                   <div className="flex flex-col sm:flex-row">
                     <div className="sm:w-1/3 relative overflow-hidden">
-                      <div className="h-48 sm:h-full bg-gradient-to-br from-orange-400 to-red-500 relative">
+                      <div className="h-48 sm:h-full bg-gradient-to-br from-green-400 to-red-500 relative">
                         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                         <div className="absolute top-4 left-4">
-                          <span className="bg-white text-orange-500 px-3 py-1 rounded-full text-xs font-semibold">
+                          <span className="bg-white text-green-500 px-3 py-1 rounded-full text-xs font-semibold">
                             {article.category}
                           </span>
                         </div>
@@ -182,17 +182,17 @@ const BlogFAQSection = () => {
                       </div>
                     </div>
                     
-                    <div className="sm:w-2/3 p-6">
-                      <div className="flex items-center text-sm text-gray-500 mb-3">
+                    <div className="sm:w-2/3 p-4">
+                      {/* <div className="flex items-center text-sm text-gray-500 mb-3">
                         <Calendar className="w-4 h-4 mr-2" />
                         <span className="mr-4">{article.date}</span>
                         <User className="w-4 h-4 mr-2" />
                         <span className="mr-4">{article.author}</span>
                         <MessageCircle className="w-4 h-4 mr-2" />
                         <span>{article.readTime}</span>
-                      </div>
+                      </div> */}
                       
-                      <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-orange-500 transition-colors">
+                      <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-500 transition-colors">
                         {article.title}
                       </h3>
                       
@@ -200,7 +200,7 @@ const BlogFAQSection = () => {
                         {article.excerpt}
                       </p>
                       
-                      <button className="inline-flex items-center text-orange-500 font-semibold hover:text-orange-600 transition-colors group">
+                      <button className="inline-flex items-center text-green-500 font-semibold hover:text-green-600 transition-colors group">
                         Read More
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -210,11 +210,11 @@ const BlogFAQSection = () => {
               ))}
             </div>
 
-            <div className="text-center pt-6">
-              <button className="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors shadow-lg hover:shadow-xl">
+            {/* <div className="text-center pt-6">
+              <button className="bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors shadow-lg hover:shadow-xl">
                 View All Articles
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

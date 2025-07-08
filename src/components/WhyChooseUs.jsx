@@ -13,7 +13,8 @@ import {
   ];
 function WhyChooseUs() {
   return (
-    <div className='max-w-7xl mx-auto px-6 lg:px-8'>
+    <div className='bg-gray-50'>
+    <div className='max-w-7xl mx-auto px-6 lg:px-8 py-12 '>
          {/* Why Choose Us Header */}
 <div className="text-center mb-12">
   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -50,14 +51,15 @@ function WhyChooseUs() {
             Let's discuss how our digital signage solutions can elevate your brand presence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+            <button className="px-6 py-3 cursor-pointer bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
               Get Free Consultation
             </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-green-600 transition-all duration-300">
-              Call +91 98765 43210
+            <button className="px-6 py-3 cursor-pointer bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-green-600 transition-all duration-300">
+              Call +91 6386901011
             </button>
           </div>
         </div>
+    </div>
     </div>
   )
 }
