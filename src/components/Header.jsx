@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
-
+import logo from '../assets/DSS_Logo.png'
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -68,18 +68,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <div className={`text-3xl font-bold transition-colors duration-300 ${
-              isScrolled 
-                ? 'bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent' 
-                : 'text-white'
-            }`}>
-              DSS
-            </div>
-            <div className={`ml-3 text-xs font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-600' : 'text-white/80'
-            }`}>
-              3D DIGITAL SIGNAGE SOLUTIONS
-            </div>
+            <img src={logo} alt='Logo' className='h-20'/>
           </div>
 
           {/* Desktop Navigation */}
