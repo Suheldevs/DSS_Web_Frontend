@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import logo from '../assets/DSS_Logo.png'
+import logo from '../assets/DSS_logo.png'
 import { Link } from 'react-router-dom';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
