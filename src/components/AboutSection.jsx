@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Users, 
-  Award, 
-  Calendar, 
-  MapPin, 
-  Target, 
-  Lightbulb, 
-  Shield, 
-  Zap,
-  Play,
   ArrowRight,
   CheckCircle,
   Star
@@ -71,24 +62,19 @@ const AboutSection = () => {
       title: "Outdoor Digital Billboard",
       category: "Advertising"
     },
-    {
-      src: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Corporate Digital Signage",
-      category: "Corporate"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Restaurant Menu Display",
-      category: "Hospitality"
-    }
+    // {
+    //   src: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    //   title: "Corporate Digital Signage",
+    //   category: "Corporate"
+    // },
+    // {
+    //   src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    //   title: "Restaurant Menu Display",
+    //   category: "Hospitality"
+    // }
   ];
 
-  const achievements = [
-    { icon: Award, title: "Industry Leader", desc: "Recognized as the leading digital signage provider in UP" },
-    { icon: Users, title: "200+ Happy Clients", desc: "Serving businesses across multiple industries" },
-    { icon: Shield, title: "Quality Assured", desc: "ISO certified with 24/7 support and warranty" },
-    { icon: Zap, title: "Latest Technology", desc: "Cutting-edge LED displays and smart solutions" }
-  ];
+ 
 
   const tabContent = {
     story: {
@@ -110,7 +96,7 @@ const AboutSection = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             About <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Digital Signage Solutions UP</span>
           </h2>
@@ -120,32 +106,15 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-          {[
-            { number: counters.projects, label: "Projects Completed", suffix: "+" },
-            { number: counters.clients, label: "Happy Clients", suffix: "+" },
-            { number: counters.experience, label: "Years Experience", suffix: "" },
-            { number: counters.branches, label: "Branches", suffix: "" }
-          ].map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text mb-2">
-                  {stat.number}{stat.suffix}
-                </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+      
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-x-12 items-center ">
           
           {/* Left Content */}
           <div>
             {/* Tab Navigation */}
-            <div className="flex space-x-1 mb-8 bg-gray-100 p-1 rounded-lg">
+            <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg">
               {Object.keys(tabContent).map((tab) => (
                 <button
                   key={tab}
@@ -162,7 +131,7 @@ const AboutSection = () => {
             </div>
 
             {/* Tab Content */}
-            <div className="mb-8">
+            <div className="my-4">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {tabContent[activeTab].title}
               </h3>
@@ -172,7 +141,7 @@ const AboutSection = () => {
             </div>
 
             {/* Key Features */}
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4 mb-6">
               {[
                 "One-stop customized digital signage solutions",
                 "Expertise in LED walls, indoor & outdoor displays",
@@ -189,23 +158,23 @@ const AboutSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
-                <span>View Our Portfolio</span>
+              <button className="group flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                <span>More About Us</span>
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group flex items-center justify-center px-8 py-4 bg-transparent border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300">
+              {/* <button className="group flex items-center justify-center px-8 py-4 bg-transparent border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300">
                 <Play className="mr-2 h-5 w-5" />
                 <span>Watch Our Story</span>
-              </button>
+              </button> */}
             </div>
           </div>
 
           {/* Right Content - Portfolio Grid */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              {portfolioImages.slice(0, 4).map((image, index) => (
+            <div className="grid grid-cols-2 ">
+              {portfolioImages.slice(0, 1).map((image, index) => (
                 <div key={index} className={`relative group overflow-hidden rounded-xl ${
-                  index === 0 ? 'col-span-2 h-48' : 'h-32'
+                  index === 0 ? 'col-span-2 h-60' : 'h-32'
                 }`}>
                   <img 
                     src={image.src} 
@@ -220,50 +189,40 @@ const AboutSection = () => {
                   </div>
                 </div>
               ))}
+               
             </div>
             
             {/* Floating Badge */}
-            <div className="absolute -top-4 -right-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-6 py-3 rounded-full font-bold shadow-lg">
+            <div className="absolute -top-4 -right-4 bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-3 rounded-full font-bold shadow-lg">
               <div className="flex items-center">
                 <Star className="h-5 w-5 mr-1" />
                 <span>Since 2006</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Achievements Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {achievements.map((achievement, index) => (
-            <div key={index} className="group">
-              <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <achievement.icon className="h-8 w-8 text-white" />
+            {/* Stats Section */}
+        <div className="grid grid-cols-2  gap-6 mt-8">
+          {[
+            { number: counters.projects, label: "Projects Completed", suffix: "+" },
+            { number: counters.clients, label: "Happy Clients", suffix: "+" },
+            { number: counters.experience, label: "Years Experience", suffix: "" },
+            { number: counters.branches, label: "Branches", suffix: "" }
+          ].map((stat, index) => (
+            <div key={index} className="text-center group  ">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-`translate-y-2">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text mb-2">
+                  {stat.number}{stat.suffix}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{achievement.title}</h3>
-                <p className="text-gray-600">{achievement.desc}</p>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <div className="mt-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 md:p-12 text-center text-white">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your Business?
-          </h3>
-          <p className="text-xl mb-8 opacity-90">
-            Let's discuss how our digital signage solutions can elevate your brand presence.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-              Get Free Consultation
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-green-600 transition-all duration-300">
-              Call +91 98765 43210
-            </button>
           </div>
         </div>
+
+         
+
+       
       </div>
     </section>
   );

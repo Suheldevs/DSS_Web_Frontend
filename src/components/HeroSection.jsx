@@ -5,7 +5,6 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Slide data with images and corresponding text
   const slides = [
     {
       id: 1,
@@ -67,7 +66,7 @@ const HeroSection = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden">
       {/* Background Image Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -112,7 +111,7 @@ const HeroSection = () => {
       </button>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-6 lg:px-8 pt-20">
+      <div className="relative mt-20 z-10 flex items-center justify-center min-h-screen px-6 lg:px-8 pt-20">
         <div className="text-center max-w-6xl mx-auto">
           {/* Main Title with Animation */}
           <div className="mb-8 overflow-hidden">
@@ -123,7 +122,7 @@ const HeroSection = () => {
               <span className="text-white block mb-2">
                 {currentSlideData.title}
               </span>
-              <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent block">
+              <span className="bg-gradient-to-r from-green-500  to-blue-500 bg-clip-text text-transparent block">
                 {currentSlideData.highlight}
               </span>
             </h1>
@@ -141,7 +140,7 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <button className="group px-8 py-4 bg-white text-gray-900 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-yellow-300 hover:to-orange-300">
+            <button className="group px-8 py-4 bg-white text-gray-900 hover:text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500">
               <span className="flex items-center">
                 {currentSlideData.buttonText}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -149,8 +148,8 @@ const HeroSection = () => {
             </button>
             
             <button className="group flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
-              <Play className="w-5 h-5 mr-2" />
-              Watch Demo
+              {/* <Play className="w-5 h-5 mr-2" /> */}
+              Our Portfolio
             </button>
           </div>
 
@@ -167,14 +166,14 @@ const HeroSection = () => {
                 }`}
               />
             ))}
-          </div>
+          </div> 
         </div>
       </div>
 
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-20">
         <div 
-          className="h-full bg-gradient-to-r from-yellow-300 to-orange-300 transition-all duration-300"
+          className="h-full bg-gradient-to-r from-green-500 to-blue-500 transition-all duration-300"
           style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
         />
       </div>
@@ -215,7 +214,7 @@ export default HeroSection;
 //     { name: 'Brand 1', color: 'text-pink-500' },
 //     { name: 'Brand 2', color: 'text-green-500' },
 //     { name: 'Brand 3', color: 'text-blue-500' },
-//     { name: 'Brand 4', color: 'text-yellow-500' },
+//     { name: 'Brand 4', color: 'text-green-500' },
 //     { name: 'Brand 5', color: 'text-purple-500' },
 //     { name: 'Brand 6', color: 'text-red-500' }
 //   ];
@@ -234,21 +233,21 @@ export default HeroSection;
 //       <nav className="relative z-10 flex items-center justify-between px-6 py-4">
 //         <div className="flex items-center">
 //           <div className="text-2xl font-bold">
-//             <span className="text-yellow-400">V</span>
+//             <span className="text-green-400">V</span>
 //             <span className="text-white">emlo</span>
 //           </div>
 //         </div>
         
 //         <div className="hidden md:flex items-center space-x-8">
-//           <a href="#" className="text-yellow-400 hover:text-yellow-300 transition-colors">Home</a>
-//           <a href="#" className="text-white hover:text-yellow-400 transition-colors">Pages</a>
-//           <a href="#" className="text-white hover:text-yellow-400 transition-colors">Services</a>
-//           <a href="#" className="text-white hover:text-yellow-400 transition-colors">Blog</a>
-//           <a href="#" className="text-white hover:text-yellow-400 transition-colors">Shop</a>
-//           <a href="#" className="text-white hover:text-yellow-400 transition-colors">Contact Us</a>
+//           <a href="#" className="text-green-400 hover:text-green-300 transition-colors">Home</a>
+//           <a href="#" className="text-white hover:text-green-400 transition-colors">Pages</a>
+//           <a href="#" className="text-white hover:text-green-400 transition-colors">Services</a>
+//           <a href="#" className="text-white hover:text-green-400 transition-colors">Blog</a>
+//           <a href="#" className="text-white hover:text-green-400 transition-colors">Shop</a>
+//           <a href="#" className="text-white hover:text-green-400 transition-colors">Contact Us</a>
 //         </div>
         
-//         <button className="border border-gray-500 text-white px-6 py-2 rounded-full hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300">
+//         <button className="border border-gray-500 text-white px-6 py-2 rounded-full hover:bg-green-400 hover:text-black hover:border-green-400 transition-all duration-300">
 //           Lets Talk
 //         </button>
 //       </nav>
@@ -263,10 +262,10 @@ export default HeroSection;
 //               <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-8">
 //                 Brilliant digital signage
 //                 <br />
-//                 <span className="text-yellow-400">services.</span>
+//                 <span className="text-green-400">services.</span>
 //               </h1>
               
-//               <button className="bg-transparent border border-gray-500 text-white px-8 py-3 rounded-full hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300">
+//               <button className="bg-transparent border border-gray-500 text-white px-8 py-3 rounded-full hover:bg-green-400 hover:text-black hover:border-green-400 transition-all duration-300">
 //                 Contact us
 //               </button>
 //             </div>
@@ -308,7 +307,7 @@ export default HeroSection;
 //                     <div className="relative w-full h-full">
 //                       {/* Upper level */}
 //                       <div className="absolute top-8 left-8 right-8 h-16 bg-gray-200 rounded opacity-30"></div>
-//                       <div className="absolute top-8 left-8 w-20 h-16 bg-orange-400 rounded opacity-60"></div>
+//                       <div className="absolute top-8 left-8 w-20 h-16 bg-blue-400 rounded opacity-60"></div>
                       
 //                       {/* Lower level */}
 //                       <div className="absolute bottom-20 left-8 right-8 h-20 bg-gray-300 rounded opacity-40"></div>
@@ -336,13 +335,13 @@ export default HeroSection;
 
 //       {/* Floating Action Buttons */}
 //       <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-20 space-y-4">
-//         <button className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors shadow-lg">
+//         <button className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-green-400 transition-colors shadow-lg">
 //           <Headphones size={20} />
 //         </button>
-//         <button className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors shadow-lg">
+//         <button className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-green-400 transition-colors shadow-lg">
 //           <ExternalLink size={20} />
 //         </button>
-//         <button className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors shadow-lg">
+//         <button className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-green-400 transition-colors shadow-lg">
 //           <ShoppingCart size={20} />
 //         </button>
 //       </div>

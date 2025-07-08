@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import logo from '../assets/DSS_Logo.png'
+import { Link } from 'react-router-dom';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -59,28 +60,36 @@ const Header = () => {
   ];
 
   return (
+    <div className=''>
+
+    
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-white shadow-lg border-b border-gray-100' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between  ">
           {/* Logo */}
-          <div className="flex items-center">
-            <img src={logo} alt='Logo' className='h-20'/>
-          </div>
+          <div className="relative flex items-center justify-center bg-white  ">
+  <img src={logo} alt="Logo" className={`${isScrolled ? 'h-20':'h-30' }  z-20 transition-all duration-700 ease-in-out`} />
+  
+  {/* Triangle */}
+  <div className={`${isScrolled ? 'bottom-[-20px]':"bottom-[-30px]"} absolute  left-1/2 transform -translate-x-1/2 
+                  w-0 h-0 border-l-[35px] border-r-[35px] border-t-[40px] 
+                  border-l-transparent border-r-transparent border-t-white z-10 transition-all duration-700 ease-in-out `}></div>
+</div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+
+          <nav className={`${isScrolled ? 'text-base':'text-lg' } hidden lg:flex  items-center space-x-8`}>
             {navItems.map((item, index) => (
               <div key={index} className="relative group">
-                <a
+                <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 font-medium transition-all duration-200 py-2 ${
+                  className={`flex  items-center space-x-1 font-medium transition-all duration-200 py-2 ${
                     isScrolled 
-                      ? 'text-gray-700 hover:text-purple-600' 
-                      : 'text-white hover:text-purple-200'
+                      ? 'text-gray-900 hover:text-black' 
+                      : 'text-white hover:text-gray-200'
                   }`}
                   onMouseEnter={() => setActiveDropdown(item.dropdown ? index : null)}
                   onMouseLeave={() => setActiveDropdown(null)}
@@ -91,12 +100,12 @@ const Header = () => {
                       activeDropdown === index ? 'rotate-180' : ''
                     }`} />
                   )}
-                </a>
+                </Link>
                 
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === index && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 z-50 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                    className="absolute top-full left-0  w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 z-50 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                     style={{
                       opacity: activeDropdown === index ? 1 : 0,
                       transform: activeDropdown === index ? 'translateY(0)' : 'translateY(8px)'
@@ -108,7 +117,7 @@ const Header = () => {
                       <a
                         key={subIndex}
                         href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-200 text-sm font-medium"
+                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-black-600 transition-colors duration-200 text-sm font-medium"
                       >
                         {subItem}
                       </a>
@@ -121,10 +130,10 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+            <button className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer ${
               isScrolled
-                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
-                : 'bg-white text-purple-600 hover:bg-purple-50'
+                ? 'bg-gradient-to-r from-green-600 to-blue-600 text-white hover:from-green-700 hover:to-blue-700'
+                : 'bg-white text-black hover:bg-green-50'
             }`}>
               Get a Quote
             </button>
@@ -152,7 +161,7 @@ const Header = () => {
               <div key={index}>
                 <a
                   href={item.href}
-                  className="flex items-center justify-between py-3 text-gray-700 hover:text-purple-600 font-medium transition-colors duration-200"
+                  className="flex items-center justify-between py-3 text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
                   onClick={() => {
                     if (item.dropdown) {
                       setActiveDropdown(activeDropdown === index ? null : index);
@@ -174,7 +183,7 @@ const Header = () => {
                       <a
                         key={subIndex}
                         href="#"
-                        className="block py-2 text-gray-600 hover:text-purple-600 transition-colors duration-200 text-sm"
+                        className="block py-2 text-gray-600 hover:text-green-600 transition-colors duration-200 text-sm"
                       >
                         {subItem}
                       </a>
@@ -185,13 +194,14 @@ const Header = () => {
             ))}
             
             {/* Mobile CTA Button */}
-            <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300">
+            <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300">
               Get a Quote
             </button>
           </div>
         </div>
       )}
     </header>
+    </div>
   );
 };
 
