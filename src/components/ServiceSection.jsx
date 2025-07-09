@@ -16,7 +16,7 @@ const ServiceSection = () => {
     {
       id: 1,
       title: "Dimensional sign",
-      description: "3D raised lettering and logos that create depth and visual impact for your brand",
+      description: "3S raised lettering and logos that create depth and visual impact for your brand",
       icon: <Monitor className="w-6 h-6" />,
       image: "https://picsum.photos/600/800?random=2",
       color: "from-green-500 to-teal-600"
@@ -53,7 +53,7 @@ const ServiceSection = () => {
 
   return (
     <div className="bg-gray-100 py-16">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-8">
         <div className="text-center mb-12">
   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
     Our <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Services</span>

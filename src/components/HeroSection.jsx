@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Play, ArrowRight, Monitor, Zap, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import bread from '../assets/bread.jpg'
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -8,9 +8,10 @@ const HeroSection = () => {
   const slides = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80",
+      image: bread,
+      // image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80",
       title: "Transform Your Brand with",
-      highlight: "3D Digital Signage Solutions",
+      highlight: "3S Digital Signage Solutions",
       subtitle: "Leading digital signage company in Lucknow providing cutting-edge LED walls, outdoor displays, and interactive digital solutions since 2006.",
       buttonText: "View Our Work"
     },
@@ -32,7 +33,8 @@ const HeroSection = () => {
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+      image: bread,
+      // image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
       title: "Partner with Experts in",
       highlight: "Digital Innovation",
       subtitle: "Join hundreds of satisfied clients who trust our expertise in delivering cutting-edge digital signage solutions that drive results.",
@@ -79,17 +81,17 @@ const HeroSection = () => {
             <img
               src={slide.image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cotain"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30"></div>
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30"></div> */}
           </div>
         ))}
       </div>
 
       {/* Animated Overlay Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-blue-600/10 to-teal-500/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] animate-pulse"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-blue-600/10 to-teal-500/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] animate-pulse"></div> */}
 
       {/* Navigation Arrows */}
       <button
@@ -140,14 +142,14 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <button className="group px-8 py-4 bg-white text-gray-900 hover:text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500">
+            <button className="group px-6 py-3 bg-white text-gray-900 hover:text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500">
               <span className="flex items-center">
                 {currentSlideData.buttonText}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
             
-            <button className="group flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
+            <button className="group flex items-center px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
               {/* <Play className="w-5 h-5 mr-2" /> */}
               Our Portfolio
             </button>

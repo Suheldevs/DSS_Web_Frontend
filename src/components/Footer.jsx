@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Facebook, 
   Twitter, 
@@ -11,12 +11,15 @@ import {
   Clock,
   ArrowRight,
   ExternalLink,
-  QrCode
+  QrCode,
+  ChevronUp
 } from 'lucide-react';
-
+import logo from '../assets/DSS_logo.png'
+import cclogo from '../assets/cc-logo.png'
+import { Link } from 'react-router-dom';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
+  const [isScrolled, setIsScrolled] = useState(false);
   const branches = [
     { name: 'Lucknow (Head Office)', address: 'Sector 10, Indira Nagar, Lucknow - 226016' },
     { name: 'Azamgarh', address: 'Civil Lines, Azamgarh - 276001' },
@@ -49,6 +52,16 @@ const Footer = () => {
     { name: 'Admin Login', href: '#admin' }
   ];
 
+    useEffect(() => {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 50);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Main Footer Content */}
@@ -58,12 +71,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <QrCode className="h-8 w-8 text-green-400 mr-3" />
-              <span className="text-2xl font-bold">DSS Digital</span>
+            <img src={logo} alt='Logo' className='bg-white h-30' />
             </div>
-            <p className="text-gray-300 leading-relaxed mb-6">
+            {/* <p className="text-gray-300 leading-relaxed mb-6">
               Leading digital signage solutions provider in Lucknow since 2006. We transform spaces with cutting-edge LED displays and interactive digital solutions.
-            </p>
+            </p> */}
             
             {/* Contact Info */}
             <div className="space-y-3">
@@ -99,8 +111,8 @@ const Footer = () => {
                   href="#"
                   className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300 group"
                 >
-                  <ArrowRight className="h-4 w-4 mr-3 text-green-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{service}</span>
+                 <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               ))}
             </div>
@@ -112,10 +124,10 @@ const Footer = () => {
               Our Branches
               <div className="w-12 h-1 bg-gradient-to-r from-green-400 to-blue-400 mt-2"></div>
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-2">
               {branches.map((branch, index) => (
                 <div key={index} className="group">
-                  <h4 className="text-sm font-medium text-white mb-1 group-hover:text-green-400 transition-colors">
+                  <h4 className="text-sm font-medium text-white mb-0.5 group-hover:text-green-400 transition-colors">
                     {branch.name}
                   </h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
@@ -197,7 +209,21 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} DSS Digital Signage Solutions. All rights reserved.
+              <div className="justify-center items-center flex gap-2">
+             Copyright © {currentYear} 3S Digital Signage Solutions. All rights reserved.
+                  <div>Designed By</div>
+                  <Link
+                    aria-label="Code Crafter"
+                    to="https://www.codecrafter.co.in/"
+                    target="_blank"
+                  >
+                    <img
+                      src={cclogo}
+                      className="lg:w-24 md:w-20 w-20 transition transform hover:scale-105"
+                      alt="CodeCrafter Logo"
+                    />
+                  </Link>
+                </div>
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a>
@@ -209,12 +235,14 @@ const Footer = () => {
       </div>
 
       {/* Scroll to Top Button */}
-      <button 
+{isScrolled &&   <button 
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 z-50"
       >
-        <ArrowRight className="h-5 w-5 -rotate-90" />
-      </button>
+        <ChevronUp className="h-5 w-5 " />
+      </button> }
+
+    
     </footer>
   );
 };

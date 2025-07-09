@@ -23,7 +23,7 @@ const AboutSection = () => {
       branches: 5
     };
 
-    const duration = 2000;
+    const duration = 5000;
     const steps = 50;
     const interval = duration / steps;
 

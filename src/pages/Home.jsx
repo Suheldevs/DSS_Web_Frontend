@@ -12,7 +12,6 @@ import WhyChooseUs from '../components/WhyChooseUs'
 function Home() {
   return (
  <>
- <Header/>
  <HeroSection/>
  <AboutSection/>
  <ServiceSection/>
@@ -20,7 +19,6 @@ function Home() {
  <WhyChooseUs/>
  <TestimonialSection/>
  <BlogFAQSection/>
- <Footer/>
  </>
   )
 }
