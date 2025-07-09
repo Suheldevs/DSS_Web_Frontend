@@ -52,10 +52,10 @@ const Header = () => {
   },
   {
     name: "Project Gallary",
-    path: "/portfolio",
+    path: "/projects",
      dropdown: [
-      { name: "Ongoing Projects", path: "/projects/ongoing" },
-      { name: "Completed Projects", path: "/projects/completed" },
+      { name: "Ongoing Projects", path: "/projects" },
+      { name: "Completed Projects", path: "/projects" },
      
     ],
   },
@@ -170,6 +170,7 @@ const Header = () => {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Link
+              to='/contact'
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer ${
                   isScrolled
                     ? "bg-gradient-to-r from-green-600 to-blue-600 text-white hover:from-green-700 hover:to-blue-700"

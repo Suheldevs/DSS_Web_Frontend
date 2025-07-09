@@ -17,7 +17,7 @@ const HeroSection = () => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
       title: "Revolutionize Your Business with",
       highlight: "Interactive LED Displays",
       subtitle: "Experience the future of advertising with our premium LED walls and interactive displays that captivate audiences and drive engagement.",
@@ -25,7 +25,7 @@ const HeroSection = () => {
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+      image: bread,
       title: "Elevate Your Space with",
       highlight: "Smart Digital Solutions",
       subtitle: "From corporate offices to retail spaces, our intelligent digital signage solutions create immersive experiences that leave lasting impressions.",
@@ -33,7 +33,8 @@ const HeroSection = () => {
     },
     {
       id: 4,
-      image: bread,
+      
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
       // image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
       title: "Partner with Experts in",
       highlight: "Digital Innovation",
