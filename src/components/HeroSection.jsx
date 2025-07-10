@@ -15,14 +15,14 @@ const HeroSection = () => {
       subtitle: "Leading digital signage company in Lucknow providing cutting-edge LED walls, outdoor displays, and interactive digital solutions since 2006.",
       buttonText: "View Our Work"
     },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
-      title: "Revolutionize Your Business with",
-      highlight: "Interactive LED Displays",
-      subtitle: "Experience the future of advertising with our premium LED walls and interactive displays that captivate audiences and drive engagement.",
-      buttonText: "Explore Solutions"
-    },
+    // {
+    //   id: 2,
+    //   image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    //   title: "Revolutionize Your Business with",
+    //   highlight: "Interactive LED Displays",
+    //   subtitle: "Experience the future of advertising with our premium LED walls and interactive displays that captivate audiences and drive engagement.",
+    //   buttonText: "Explore Solutions"
+    // },
     {
       id: 3,
       image: bread,
@@ -31,16 +31,16 @@ const HeroSection = () => {
       subtitle: "From corporate offices to retail spaces, our intelligent digital signage solutions create immersive experiences that leave lasting impressions.",
       buttonText: "Get Started"
     },
-    {
-      id: 4,
+    // {
+    //   id: 4,
       
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
-      // image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
-      title: "Partner with Experts in",
-      highlight: "Digital Innovation",
-      subtitle: "Join hundreds of satisfied clients who trust our expertise in delivering cutting-edge digital signage solutions that drive results.",
-      buttonText: "Contact Us"
-    }
+    //   image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    //   // image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+    //   title: "Partner with Experts in",
+    //   highlight: "Digital Innovation",
+    //   subtitle: "Join hundreds of satisfied clients who trust our expertise in delivering cutting-edge digital signage solutions that drive results.",
+    //   buttonText: "Contact Us"
+    // }
   ];
 
   // Auto-slide functionality

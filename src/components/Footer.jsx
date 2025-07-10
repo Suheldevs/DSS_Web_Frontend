@@ -63,7 +63,30 @@ const Footer = () => {
 
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <footer className="bg-gradient-to-br from-black via-neutral-900 to-neutral-950 text-white">
+     
+      {/* Newsletter Signup */}
+        <div className=" py-8 border-b border-neutral-800">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Stay Updated with Latest Digital Signage Trends
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Subscribe to our newsletter for industry insights, product updates, and exclusive offers.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email address"
+                className="flex-1 px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
+              />
+              <button className="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-400 text-white font-medium rounded-lg hover:from-green-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+     
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -181,31 +204,11 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-xl font-semibold text-white mb-4">
-              Stay Updated with Latest Digital Signage Trends
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Subscribe to our newsletter for industry insights, product updates, and exclusive offers.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
-              />
-              <button className="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-400 text-white font-medium rounded-lg hover:from-green-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+       
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 bg-gray-900">
+      <div className="border-t border-neutral-800 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-3">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
