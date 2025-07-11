@@ -176,7 +176,7 @@ const Header = () => {
                 </div>
               ))}
               <button onClick={handleClick} className="text-white relative">
-                 {menu ?  <MenuIcon /> : <ChartNoAxesGantt /> }   
+                 {!menu ?  <MenuIcon /> : <ChartNoAxesGantt /> }   
                   </button>
                    <div
                       className={` ${menu  ? "block h-auto opacity-100 w-36 top-0" : 'hidden h-0 opacity-0 w-0'}  ${isScrolled?'bg-black':'bg-white/5'} absolute top-full right-0    backdrop-blur-2xl rounded-lg shadow-2xl border mt-1  border-gray-300/20 py-3 z-50  `}

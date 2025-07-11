@@ -8,6 +8,7 @@ import BlogFAQSection from '../components/BlogSection'
 import ServiceSection from '../components/ServiceSection'
 import TestimonialSection from '../components/TestimonialSection'
 import WhyChooseUs from '../components/WhyChooseUs'
+import HowWeWork from '../components/HowWeWork'
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
  <AboutSection/>
  <ServiceSection/>
  <ProjectSection/>
+ <HowWeWork/>
  <WhyChooseUs/>
  <TestimonialSection/>
  <BlogFAQSection/>
