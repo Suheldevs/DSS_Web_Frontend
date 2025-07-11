@@ -14,7 +14,7 @@ import {
 function WhyChooseUs() {
   return (
     <div className='bg-gray-50'>
-    <div className='max-w-7xl mx-auto px-6 lg:px-8 py-12 '>
+    <div className='max-w-7xl mx-auto px-4 py-8 '>
          {/* Why Choose Us Header */}
 <div className="text-center mb-12">
   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -31,7 +31,7 @@ function WhyChooseUs() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {achievements.map((achievement, index) => (
             <div key={index} className="group">
-              <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+              <div className="bg-white border border-gray-100 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
                   <achievement.icon className="h-8 w-8 text-white" />
                 </div>

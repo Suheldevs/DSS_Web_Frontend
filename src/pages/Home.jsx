@@ -9,6 +9,8 @@ import ServiceSection from '../components/ServiceSection'
 import TestimonialSection from '../components/TestimonialSection'
 import WhyChooseUs from '../components/WhyChooseUs'
 import HowWeWork from '../components/HowWeWork'
+import BlogSection from '../components/BlogSection'
+import TextMarquee from '../components/TextMarquee'
 
 function Home() {
   return (
@@ -17,10 +19,12 @@ function Home() {
  <AboutSection/>
  <ServiceSection/>
  <ProjectSection/>
+ <TextMarquee/>
  <HowWeWork/>
  <WhyChooseUs/>
  <TestimonialSection/>
- <BlogFAQSection/>
+ <BlogSection/>
+ {/* <BlogFAQSection/> */}
  </>
   )
 }

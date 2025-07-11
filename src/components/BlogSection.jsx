@@ -1,130 +1,227 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Calendar, User, ArrowRight, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Clock, Tag, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+// import blogPosts from '../data/BlogData';
+// Mock Link component since react-router-dom isn't available
+const Link = ({ to, children, className, ...props }) => (
+  <a href={to} className={className} {...props}>
+    {children}
+  </a>
+);
 
-const BlogFAQSection = () => {
-  const [activeQuestion, setActiveQuestion] = useState(0);
 
-  const faqs = [
-    {
-      question: "Why should I choose your company?",
-      answer: "The best sign for any business is one that will attract the most customers and give your a business the correct identity. Please visit our branch finder page and contact nearest sign maker to discuss your requirements."
-    },
-    {
-      question: "What material can I use for my sign?",
-      answer: "We offer a wide range of materials including vinyl, aluminum, acrylic, wood, and digital displays. Each material has its own benefits and we'll help you choose the best option based on your specific needs, budget, and installation requirements."
-    },
-    {
-      question: "What other services do you provide?",
-      answer: "Beyond signage, we offer comprehensive branding solutions including logo design, vehicle wraps, window graphics, banner printing, trade show displays, and digital signage solutions. We're your one-stop shop for all visual communication needs."
-    },
-    {
-      question: "How quick is your service turnaround?",
-      answer: "Our standard turnaround time is 5-7 business days for most projects. However, we offer rush services for urgent needs with 24-48 hour turnaround available. Complex projects may require additional time, which we'll discuss during consultation."
-    },
-    {
-      question: "Do you provide installation services?",
-      answer: "Yes, we provide professional installation services with certified technicians. We handle everything from permits to final installation, ensuring your signage is properly mounted and compliant with local regulations."
-    }
-  ];
+const blogPosts = [
+  {
+    id: 1,
+    title: "Transforming Airports with Wayfinding Signage",
+    description: "Explore how effective signage enhances navigation and improves passenger experience in busy airport environments.",
+    image: "https://picsum.photos/400/300?random=1",
+    date: "Dec 15, 2024",
+    category: "Airport Signage",
+    slug: "airport-wayfinding-signage"
+  },
+  {
+    id: 2,
+    title: "Eco-Friendly Materials in Signage Fabrication",
+    description: "Discover sustainable materials that reduce environmental impact while maintaining quality and durability in signage.",
+    image: "https://picsum.photos/400/300?random=2",
+    date: "Dec 12, 2024",
+    category: "Sustainability",
+    slug: "eco-friendly-signage-materials"
+  },
+  {
+    id: 3,
+    title: "Smart Signage for Smart Cities for better Apperience.",
+    description: "How digital signage and smart displays are redefining urban infrastructure and public communication in smart cities.",
+    image: "https://picsum.photos/400/300?random=3",
+    date: "Dec 10, 2024",
+    category: "Digital Signage",
+    slug: "smart-city-digital-signage"
+  },
+  {
+    id: 4,
+    title: "Creative Retail Signage at DSS That Drives Sales",
+    description: "Uncover signage strategies that attract foot traffic and boost conversion in competitive retail spaces.",
+    image: "https://picsum.photos/400/300?random=4",
+    date: "Dec 8, 2024",
+    category: "Retail Signage",
+    slug: "retail-signage-strategies"
+  },
+  {
+    id: 5,
+    title: "Navigational Signage for Large Campuses",
+    description: "Learn how proper directional signage simplifies movement across hospitals, universities, and corporate parks.",
+    image: "https://picsum.photos/400/300?random=5",
+    date: "Dec 5, 2024",
+    category: "Wayfinding",
+    slug: "campus-navigation-signage"
+  },
+  {
+    id: 6,
+    title: "Mastering Signage Project Management from DSS",
+    description: "From client briefing to installation—best practices for ensuring signage projects are smooth and successful.",
+    image: "https://picsum.photos/400/300?random=6",
+    date: "Dec 3, 2024",
+    category: "Project Management",
+    slug: "signage-project-management"
+  }
+];
 
-  const articles = [
-    {
-      id: 1,
-      title: "Color Contrast Know-How for Signage",
-      excerpt: "There are full service engage company is to provide solution for employees needs training...",
-      image: "/api/placeholder/300/200",
-      date: "Dec 15, 2024",
-      author: "Sarah Johnson",
-      category: "Design Tips",
-      readTime: "5 min read"
-    },
-    {
-      id: 2,
-      title: "Customer Experience & Signage Trends",
-      excerpt: "At placerat vestibulum lectus mauris ultrices eros in. Suspendisse sed nisl lacus viver...",
-      image: "/api/placeholder/300/200",
-      date: "Dec 12, 2024",
-      author: "Mike Chen",
-      category: "Industry Trends",
-      readTime: "7 min read"
-    },
-    {
-      id: 3,
-      title: "High-Impact Seasonal Signage to Set Go",
-      excerpt: "Cursus turpis massa tincidunt dui. Nec feugiat in fermentum posuere. Ut porttitor leoma...",
-      image: "/api/placeholder/300/200",
-      date: "Dec 10, 2024",
-      author: "Emma Wilson",
-      category: "Marketing",
-      readTime: "4 min read"
-    }
-  ];
 
-  const toggleQuestion = (index) => {
-    setActiveQuestion(activeQuestion === index ? -1 : index);
+export default function BlogSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Responsive slides per view
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => {
+        const maxSlide = Math.max(0, blogPosts.length - slidesToShow);
+        return prev >= maxSlide ? 0 : prev + 1;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, slidesToShow]);
+
+  const nextSlide = () => {
+    const maxSlide = Math.max(0, blogPosts.length - slidesToShow);
+    setCurrentSlide(prev => prev >= maxSlide ? 0 : prev + 1);
   };
 
-  return (
-    <div className="bg-gray-50 py-16">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
-          {/* FAQ Section */}
-          <div className="space-y-8">
-            <div>
-              <p className="text-green-500 text-sm font-semibold tracking-wider uppercase mb-2">
-                Have Any Questions?
-              </p>
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">
-                Our FAQ's
-              </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                We've compiled the list of frequently asked questions to help you along the way to obtain higher performance
-              </p>
-            </div>
+  const prevSlide = () => {
+    const maxSlide = Math.max(0, blogPosts.length - slidesToShow);
+    setCurrentSlide(prev => prev <= 0 ? maxSlide : prev - 1);
+  };
 
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const maxSlide = Math.max(0, blogPosts.length - slidesToShow);
+
+  return (
+    <section className="bg-white py-8">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Section Header */}
+       <div className="text-center mb-6">
+
+  {/* Heading */}
+  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-2">
+    Latest<span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Articles</span>
+  </h2>
+
+  {/* Bottom Gradient Line */}
+  <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-2"></div>
+
+  {/* Subtitle */}
+  <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+    Stay updated with the latest trends, insights, and innovations in signage, branding, and digital display solutions.
+  </p>
+</div>
+
+
+        {/* Slider Container */}
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:bg-green-50 border border-gray-200"
+            disabled={currentSlide === 0}
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:bg-green-50 border border-gray-200"
+            disabled={currentSlide >= maxSlide}
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-green-600 transition-colors duration-300" />
+          </button>
+
+          {/* Slider Track */}
+          <div className="overflow-hidden rounded-xl">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)`
+              }}
+            >
+              {blogPosts.map(post => (
+                <div 
+                  key={post.id} 
+                  className="flex-shrink-0 px-3"
+                  style={{ width: `${100 / slidesToShow}%` }}
                 >
-                  <button
-                    onClick={() => toggleQuestion(index)}
-                    className={`w-full px-6 py-4 text-left flex items-center justify-between transition-all duration-300 ${
-                      activeQuestion === index 
-                        ? 'bg-green-500 text-white' 
-                        : 'bg-white text-gray-800 hover:bg-gray-50'
-                    }`}
-                  >
-                    <span className="font-semibold text-lg">{faq.question}</span>
-                    {activeQuestion === index ? (
-                      <ChevronUp className="w-5 h-5 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 flex-shrink-0" />
-                    )}
-                  </button>
-                  
-                  <div className={`transition-all duration-300 ${
-                    activeQuestion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  } overflow-hidden`}>
-                    <div className="px-6 py-4 border-t border-gray-100">
-                      <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                      {index === 0 && (
-                        <div className="flex items-center mt-4">
-                          <img 
-                            src="/api/placeholder/60/60" 
-                            alt="Team" 
-                            className="w-12 h-12 rounded-full mr-3"
-                          />
-                          <div>
-                            <p className="text-sm text-gray-600">Need more help?</p>
-                            <button className="text-green-500 font-medium hover:text-green-600 transition-colors">
-                              Contact our team →
-                            </button>
-                          </div>
+                  <div className="bg-white aspect-auto flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200  group">
+                    {/* Image section */}
+                    <div className="h-1/2 overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    
+                    {/* Content section */}
+                    <div className="p-4 flex flex-col flex-grow">
+                      {/* Date and Category row */}
+                      <div className="flex justify-between items-center mb-3 text-xs">
+                        <div className="flex items-center text-gray-500">
+                          <Clock className="h-3 w-3 mr-1" />
+                          {post.date}
                         </div>
-                      )}
+                        <div className="inline-flex items-center bg-green-600 px-2 py-1 rounded-sm text-xs font-medium text-white">
+                          <Tag className="h-3 w-3 mr-1" />
+                          {post.category}
+                        </div>
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="font-bold text-lg text-black mb-2 line-clamp-2 group-hover:text-green-600 group-hover:underline transition-colors duration-300">
+                        {post.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-gray-600 mb-4 line-clamp-2 flex-grow text-sm">
+                        {post.description}
+                      </p>
+                      
+                      {/* Read More button */}
+                      <div className="mt-auto">
+                        <Link 
+                          to={`/blog-detail/${post.slug}`}
+                          className="inline-flex items-center text-sm font-medium text-green-600 hover:text-green-700 transition-colors duration-300 group-hover:translate-x-1"
+                        >
+                          Read More
+                          <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -132,94 +229,22 @@ const BlogFAQSection = () => {
             </div>
           </div>
 
-          {/* Blog Section */}
-          <div className="space-y-8">
-            <div>
-              <p className="text-green-500 text-sm font-semibold tracking-wider uppercase mb-2">
-                Our Blog and News
-              </p>
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">
-                Our Latest Articles
-              </h2>
-            </div>
-
-            <div className="space-y-6">
-              {articles.map((article) => (
-                <div
-                  key={article.id}
-                  className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
-                >
-                  <div className="flex flex-col sm:flex-row">
-                    <div className="sm:w-1/3 relative overflow-hidden">
-                      <div className="h-48 sm:h-full bg-gradient-to-br from-green-400 to-red-500 relative">
-                        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-white text-green-500 px-3 py-1 rounded-full text-xs font-semibold">
-                            {article.category}
-                          </span>
-                        </div>
-                        {/* Sample content for different articles */}
-                        <div className="absolute inset-0 flex items-center justify-center text-white">
-                          {article.id === 1 && (
-                            <div className="text-center">
-                              <div className="text-4xl mb-2">📊</div>
-                              <p className="text-sm font-medium">Color Theory</p>
-                            </div>
-                          )}
-                          {article.id === 2 && (
-                            <div className="text-center">
-                              <div className="text-4xl mb-2">👥</div>
-                              <p className="text-sm font-medium">Customer Focus</p>
-                            </div>
-                          )}
-                          {article.id === 3 && (
-                            <div className="text-center">
-                              <div className="text-4xl mb-2">🎯</div>
-                              <p className="text-sm font-medium">Seasonal Design</p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="sm:w-2/3 p-4">
-                      {/* <div className="flex items-center text-sm text-gray-500 mb-3">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        <span className="mr-4">{article.date}</span>
-                        <User className="w-4 h-4 mr-2" />
-                        <span className="mr-4">{article.author}</span>
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        <span>{article.readTime}</span>
-                      </div> */}
-                      
-                      <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-500 transition-colors">
-                        {article.title}
-                      </h3>
-                      
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {article.excerpt}
-                      </p>
-                      
-                      <button className="inline-flex items-center text-green-500 font-semibold hover:text-green-600 transition-colors group">
-                        Read More
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* <div className="text-center pt-6">
-              <button className="bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors shadow-lg hover:shadow-xl">
-                View All Articles
-              </button>
-            </div> */}
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {Array.from({ length: maxSlide + 1 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index 
+                    ? 'bg-green-600 w-6' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default BlogFAQSection;
+}

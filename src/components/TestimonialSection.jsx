@@ -45,20 +45,20 @@ const TestimonialSection = () => {
   ];
 
   return (
-    <div className="  py-16 ">
-      <div className="max-w-7xl mx-auto px-8">
+    <div className="  py-12 bg-black ">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
             What our clients{" "}
             <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               say!
             </span>
           </h2>
 
-          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-4"></div>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Hear from the businesses and brands we've helped shine with smart
             and stunning signage solutions.
           </p>
