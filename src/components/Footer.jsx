@@ -17,6 +17,7 @@ import {
 import logo from '../assets/DSS_logo.png'
 import cclogo from '../assets/cc-logo.png'
 import { Link } from 'react-router-dom';
+import services from '../data//ServiceData.jsx'
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,23 +29,21 @@ const Footer = () => {
     { name: 'Saraimeer', address: 'Market Area, Saraimeer - 225412' }
   ];
 
-  const services = [
-    'LED Video Walls',
-    'Outdoor Digital Displays',
-    'Indoor Digital Signage',
-    'Interactive Kiosks',
-    'High Rise Billboards',
-    'Navigation Displays',
-    'Retail Digital Screens',
-    'Corporate Signage',
-    'Event LED Screens',
-    'Smart City Solutions'
-  ];
+  // const services = [
+  //   'LED Video Walls',
+  //   'Outdoor Digital Displays',
+  //   'Indoor Digital Signage',
+  //   'Interactive Kiosks',
+  //   'High Rise Billboards',
+  //   'Navigation Displays',
+  //   'Retail Digital Screens',
+  //   'Corporate Signage',
+  //   'Event LED Screens',
+  //   'Smart City Solutions'
+  // ];
 
   const quickLinks = [
     { name: 'About Us', href: '#about' },
-    { name: 'Our Portfolio', href: '#portfolio' },
-    { name: 'Technology', href: '#technology' },
     { name: 'Case Studies', href: '#case-studies' },
     { name: 'Careers', href: '#careers' },
     { name: 'Support', href: '#support' },
@@ -94,29 +93,29 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-            <img src={logo} alt='Logo' className='bg-white h-30' />
+            <img src={logo} alt='Logo' className='bg-white h-26' />
             </div>
             {/* <p className="text-gray-300 leading-relaxed mb-6">
               Leading digital signage solutions provider in Lucknow since 2006. We transform spaces with cutting-edge LED displays and interactive digital solutions.
             </p> */}
             
             {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center text-gray-300">
+            <div className="space-y-2">
+              <a href='https://maps.app.goo.gl/FvbzrGGVEzE9Ueh67' target='_blank' className="flex items-center text-gray-300">
                 <MapPin className="h-5 w-5 text-green-400 mr-3 flex-shrink-0" />
-                <span className="text-sm">Sector 10, Indira Nagar, Lucknow - 226016</span>
-              </div>
-              <div className="flex items-center text-gray-300">
+                <span className="text-sm">Near Yamaha Showroom, Chinhat Tiraha, Faizabad Road, Lucknow</span>
+              </a>
+              <a href='tel:6386901011' target='_blank' className="flex items-center text-gray-300">
                 <Phone className="h-5 w-5 text-green-400 mr-3 flex-shrink-0" />
-                <span className="text-sm">+91 98765 43210</span>
-              </div>
-              <div className="flex items-center text-gray-300">
+                <span className="text-sm tracking-wide">+91-6386901011</span>
+              </a>
+              <a href='mailto:info@digitalsignagesolutions.in' target='_blank' className="flex items-center text-gray-300">
                 <Mail className="h-5 w-5 text-green-400 mr-3 flex-shrink-0" />
-                <span className="text-sm">info@dssdigital.com</span>
-              </div>
+                <span className="text-sm">info@digitalsignagesolutions.in</span>
+              </a>
               <div className="flex items-center text-gray-300">
                 <Clock className="h-5 w-5 text-green-400 mr-3 flex-shrink-0" />
-                <span className="text-sm">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                <span className="text-sm">Mon - Sat: 9:00 AM - 9:00 PM</span>
               </div>
             </div>
           </div>
@@ -127,16 +126,16 @@ const Footer = () => {
               Our Services
               <div className="w-12 h-1 bg-gradient-to-r from-green-400 to-blue-400 mt-2"></div>
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {services.slice(0, 8).map((service, index) => (
-                <a 
+                <Link 
                   key={index}
-                  href="#"
+                  to={service?.slug}
                   className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300 group"
                 >
-                  <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{service}</span>
+                  <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{service.title}</span>
                  <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -149,13 +148,14 @@ const Footer = () => {
             </h3>
             <div className="space-y-2">
               {branches.map((branch, index) => (
-                <div key={index} className="group">
-                  <h4 className="text-sm font-medium text-white mb-0.5 group-hover:text-green-400 transition-colors">
+                <div key={index} className="group flex  items-center cursor-pointer">
+                  <h4 title={branch.address} className="text-sm font-medium text-white mb-0.5 group-hover:text-green-400 transition-colors">
                     {branch.name}
                   </h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                    <ExternalLink className="h-3 w-3 ml-1 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {/* <p className="text-xs text-gray-400 leading-relaxed">
                     {branch.address}
-                  </p>
+                  </p> */}
                 </div>
               ))}
             </div>
@@ -165,9 +165,9 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <h3 className="text-lg font-semibold mb-6 text-white">
               Quick Links
-              <div className="w-12 h-1 bg-gradient-to-r from-green-400 to-blue-400 mt-2"></div>
+              <div className="w-12 h-1 bg-gradient-to-r from-green-400 to-blue-400 mt-1"></div>
             </h3>
-            <div className="grid grid-cols-2 gap-3 mb-8">
+            <div className="grid grid-cols-2 gap-2 mb-4">
               {quickLinks.map((link, index) => (
                 <a 
                   key={index}

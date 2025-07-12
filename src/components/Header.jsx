@@ -20,10 +20,17 @@ const Header = () => {
     {
       name: "Home",
       path: "/",
+      
     },
     {
-      name: "About Us",
-      path: "/about-us",
+      name: "About DSS",
+      path: "/about",
+       dropdown: [
+        { name: "Our Brandstory", path: "/about/story" },
+        { name: "Director Message", path: "/about/director-message" },
+        { name: "Vision & Mission", path: "/about/vision&mission" },
+        { name: "Our Team", path: "/about/team" },
+      ],
     },
 
     {
@@ -53,10 +60,10 @@ const Header = () => {
     {
       name: "Project Gallary",
       path: "/projects",
-      dropdown: [
-        { name: "Ongoing Projects", path: "/projects" },
-        { name: "Completed Projects", path: "/projects" },
-      ],
+      // dropdown: [
+      //   { name: "Ongoing Projects", path: "/projects" },
+      //   { name: "Completed Projects", path: "/projects" },
+      // ],
     },
     {
       name: "Client",
@@ -78,6 +85,13 @@ const Header = () => {
 
   const handleClick = ()=>{
     setMenu(!menu)
+  }
+
+  const handleMouseLeave = ()=>{
+    setTimeout(()=>{
+setMenu(false)
+      setActiveDropdown(null)
+    },400)
   }
   return (
     <div className="">
@@ -151,11 +165,11 @@ const Header = () => {
                             : "translateY(8px)",
                       }}
                       onMouseEnter={() => setActiveDropdown(index)}
-                      onMouseLeave={() => setActiveDropdown(null)}
+                      onMouseLeave={handleMouseLeave}
                     >
                       {item.dropdown.map((subItem, subIndex) => (
                         <Link
-                          to={subIndex.path}
+                          to={subItem.path}
                           className="block px-4  py-1.5 tracking-wide text-gray-700 hover:tracking-wider hover:bg-blue-50 hover:text-black-600 transition-colors duration-200 text-sm font-medium"
                         >
                           {subItem.name}
@@ -175,17 +189,18 @@ const Header = () => {
                   
                 </div>
               ))}
-              <button onClick={handleClick} className="text-white relative">
+              <button onClick={handleClick} className="text-white relative cursor-pointer">
                  {!menu ?  <MenuIcon /> : <ChartNoAxesGantt /> }   
                   </button>
                    <div
                       className={` ${menu  ? "block h-auto opacity-100 w-36 top-0" : 'hidden h-0 opacity-0 w-0'}  ${isScrolled?'bg-black':'bg-white/5'} absolute top-full right-0    backdrop-blur-2xl rounded-lg shadow-2xl border mt-1  border-gray-300/20 py-3 z-50  `}
                       onMouseEnter={() => setActiveDropdown(index)}
-                      onMouseLeave={() => setActiveDropdown(null)}
+                      onMouseLeave={handleMouseLeave}
                     >
+                      {/* {console.log(navItems[5].path)} */}
                       {navItems?.slice(5).map((subItem, subIndex) => (
                         <Link
-                          to={subIndex.path}
+                          to={subItem.path}
                           className="block px-4  py-1.5 tracking-wide text-gray-100 hover:tracking-wider hover:bg-white/10 hover:text-black-600 transition-colors duration-200 text-sm font-medium "
                         >
                           {subItem.name}

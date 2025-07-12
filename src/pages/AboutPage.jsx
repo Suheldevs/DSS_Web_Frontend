@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
 import TimelineSection from '../components/About/TimelineSection';
+import TextMarquee from '../components/TextMarquee';
 
 const AboutPage = () => {
   const [activeTab, setActiveTab] = useState('story');
@@ -174,7 +175,7 @@ const AboutPage = () => {
     <div className="min-h-screen bg-white">
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white py-20 overflow-hidden">
+      {/* <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white py-20 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-96 h-96 bg-green-200 rounded-full opacity-20 -translate-x-48 -translate-y-48"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-200 rounded-full opacity-20 translate-x-48 translate-y-48"></div>
@@ -203,10 +204,10 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
@@ -271,12 +272,13 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+      <TextMarquee/>
       <div className='relative max-w-7xl mx-auto px-6 lg:px-8'>
 
 <TimelineSection/>
       </div>
       {/* Our Strength Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-8 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Strength</h2>

@@ -58,14 +58,14 @@ const TestimonialSection = () => {
 
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-4"></div>
 
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+          {/* <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Hear from the businesses and brands we've helped shine with smart
             and stunning signage solutions.
-          </p>
+          </p> */}
         </div>
-
+            <iframe src="https://widget.tagembed.com/2147598" className='w-full h-[21rem]' title="Xpress Tour & Travels Reviews"></iframe>
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
@@ -80,18 +80,19 @@ const TestimonialSection = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Gradient BG Strip - Animates on hover */}
               <div
                 className={`
       absolute top-0 left-0 h-full transition-all duration-500
      
-      ${hoveredIndex === index ? "w-full  bg-gradient-to-r from-green-500 to-blue-500" : "w-1 bg-green-500"}
+      ${
+        hoveredIndex === index
+          ? "w-full  bg-gradient-to-r from-green-500 to-blue-500"
+          : "w-1 bg-green-500"
+      }
     `}
               ></div>
 
-              {/* Inner content wrapper to avoid text overflow on bg */}
               <div className="relative z-10">
-                {/* Quote Icon */}
                 <div
                   className={`
         absolute top-10 right-2 opacity-20 transition-all duration-300
@@ -101,7 +102,6 @@ const TestimonialSection = () => {
                   <Quote size={32} />
                 </div>
 
-                {/* Quote Text */}
                 <div className="mb-8">
                   <p
                     className={`
@@ -113,7 +113,6 @@ const TestimonialSection = () => {
                   </p>
                 </div>
 
-                {/* Author Info */}
                 <div className="flex items-center space-x-4">
                   <div
                     className={`
@@ -126,7 +125,6 @@ const TestimonialSection = () => {
                       alt={testimonial.name}
                       className="w-16 h-16 rounded-full object-cover border-2 border-white/20"
                     />
-                    
                   </div>
 
                   <div
@@ -148,12 +146,10 @@ const TestimonialSection = () => {
                     </p>
                   </div>
                 </div>
-
-                
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Bottom Stats */}
         {/* <div className="mt-20 text-center">

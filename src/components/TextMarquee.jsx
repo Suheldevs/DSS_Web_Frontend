@@ -18,18 +18,18 @@ export default function TextMarquee() {
   ];
 
   return (
-    <div className="bg-black text-white overflow-hidden py-4 mb-2 relative">
+    <div className="bg-black text-white overflow-hidden py-6 mb-2 relative">
       {/* Main marquee */}
       <div className="flex animate-marquee whitespace-nowrap">
         {signageServices.map((service, index) => {
           const IconComponent = service.icon;
           return (
             <div key={index} className="flex items-center mx-8">
-              <IconComponent className="w-6 h-6 text-yellow-400 mr-3" />
-              <span className="text-2xl font-semibold tracking-wide">
+              <IconComponent className="w-8 h-8 text-white mr-3" />
+              <span className="text-3xl font-semibold tracking-wide">
                 {service.text}
               </span>
-              <Star className="w-4 h-4 text-yellow-400 ml-4" />
+              {/* <Star className="w-4 h-4 text-yellow-400 ml-4" /> */}
             </div>
           );
         })}

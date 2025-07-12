@@ -40,9 +40,9 @@ const TimelineSection = () => {
   const currentData = timelineData[activeYear];
 
   return (
-    <div className="py-20">
+    <div className="py-8">
       <div className="text-center mb-16">
-        <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+        <h2 className="text-5xl  font-bold text-gray-900 mb-6">
           We building everything
           <span className="block">that needed you</span>
         </h2>

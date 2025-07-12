@@ -11,6 +11,7 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import HowWeWork from '../components/HowWeWork'
 import BlogSection from '../components/BlogSection'
 import TextMarquee from '../components/TextMarquee'
+import ClientSection from '../components/ClientSection'
 
 function Home() {
   return (
@@ -19,8 +20,9 @@ function Home() {
  <AboutSection/>
  <ServiceSection/>
  <ProjectSection/>
- <TextMarquee/>
  <HowWeWork/>
+ <ClientSection/>
+ <TextMarquee/>
  <WhyChooseUs/>
  <TestimonialSection/>
  <BlogSection/>

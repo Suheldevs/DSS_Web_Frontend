@@ -91,7 +91,7 @@ const ProjectSection = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8 mb-6">
       {/* Header */}
       <div className="text-center mb-8">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">

@@ -41,12 +41,12 @@ const ServiceSection = () => {
               onMouseEnter={() => setActiveService(index)}
             >
               {/* Background Image */}
-              <div 
+              {/* <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{
                   backgroundImage: `url(${service.image})`
                 }}
-              />
+              /> */}
               
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black group-hover:bg-opacity-60 transition-all duration-300" />
