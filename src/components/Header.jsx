@@ -158,7 +158,7 @@ setMenu(false)
                   {/* Dropdown Menu */}
                   {item.dropdown && activeDropdown === index && (
                     <div
-                      className="absolute top-full mt-1 left-0  w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 z-50 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      className="absolute top-full left-0  w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 z-50 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                       style={{
                         opacity: activeDropdown === index ? 1 : 0,
                         transform:
@@ -172,7 +172,7 @@ setMenu(false)
                       {item.dropdown.map((subItem, subIndex) => (
                         <Link
                           to={subItem.path}
-                          className="block px-4  py-1.5 tracking-wide text-gray-700 hover:tracking-wider hover:bg-blue-50 hover:text-black-600 transition-colors duration-200 text-sm font-medium"
+                          className="block px-4 py-1.5 tracking-wide text-gray-700 hover:tracking-wider hover:bg-blue-50 hover:text-black-600 transition-colors duration-200 text-sm font-medium"
                         >
                           {subItem.name}
                         </Link>
@@ -204,7 +204,7 @@ setMenu(false)
                       {navItems?.slice(5).map((subItem, subIndex) => (
                         <Link
                           to={subItem.path}
-                          className="block px-4  py-1.5 tracking-wide text-gray-100 hover:tracking-wider hover:bg-white/10 hover:text-black-600 transition-colors duration-200 text-sm font-medium "
+                          className="block px-4  py-1.5 tracking-wide text-gray-100 hover:tracking-wider hover:bg-white/5 hover:text-black-600 transition-colors duration-200 text-sm font-medium "
                         >
                           {subItem.name}
                         </Link>
