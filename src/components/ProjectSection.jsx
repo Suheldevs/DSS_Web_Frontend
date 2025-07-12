@@ -67,11 +67,12 @@ const ProjectSection = () => {
 
   const sliderSettings = {
     dots: true,
+     arrows: false, 
     infinite: true,
     speed: 600,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: true,
+    // arrows: true,
     autoplay: true,
     autoplaySpeed: 3500,
     responsive: [
@@ -93,8 +94,8 @@ const ProjectSection = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 mb-6">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-2">
           Our Latest{" "}
           <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
             Projects
@@ -108,7 +109,7 @@ const ProjectSection = () => {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+              className={`lg:px-6 px-3 lg:py-2 py-1 lg:text-sm text-xs font-medium rounded-full transition-all duration-300 ${
                 activeFilter === filter
                   ? "bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg"
                   : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
@@ -122,14 +123,15 @@ const ProjectSection = () => {
 
       {/* Slider Cards */}
       <Slider {...sliderSettings}>
-        {filteredProjects.map((project) => (
-          <div key={project.id} className="px-3">
+        {filteredProjects.map((project , index) => (
+          <div key={project.id} className="px-2" data-aos="fade-up"
+              data-aos-delay={index * 100}>
             <div className="group relative overflow-hidden  shadow-lg hover:shadow-2xl transition-all duration-500">
               {/* Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                className="w-full lg:h-96 h-72 object-cover transform group-hover:scale-105 transition-transform duration-300"
               />
 
               {/* Category Tag */}

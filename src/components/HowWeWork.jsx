@@ -52,16 +52,16 @@ const Step = ({ id, title, Icon, description, index }) => (
   <div
     className="text-center relative flex flex-col items-center"
     data-aos="fade-up"
-    data-aos-delay={index * 200}
+    data-aos-delay={index * 300}
   >
-    <div className="w-20 h-20 group flex items-center justify-center rounded-full border-2 border-white bg-white text-black hover:bg-transparent hover:text-white transition duration-500 relative">
+    <div className="lg:w-20 w-16 lg:h-20 h-16 group flex items-center justify-center rounded-full border-2 border-white bg-white text-black hover:bg-transparent hover:text-white transition duration-500 relative">
       <Icon size={40} />
-      <div className="absolute h-7 w-7 flex justify-center items-center group-hover:top-0  -top-1 -right-1 bg-white text-black font-bold text-xs px-2 py-0.5 rounded-full border">
+      <div className="absolute lg:h-7 lg:w-7 flex justify-center items-center group-hover:top-0  -top-1 -right-1 bg-white text-black font-bold text-xs px-2 py-0.5 rounded-full border">
         {id}
       </div>
     </div>
-    <h3 className="font-semibold mt-3 text-white text-lg">{title}</h3>
-    <p className="text-gray-300 text-sm mt-1 max-w-xs mx-auto px-2">{description}</p>
+    <h3 className="font-semibold lg:mt-3 text-white text-lg">{title}</h3>
+    <p className="md:block hidden text-gray-300 text-sm mt-1 max-w-xs mx-auto px-2">{description}</p>
 
     {((index !== steps.length - 1) && (index !== 2)) && (
        <svg
@@ -89,7 +89,7 @@ export default function HowWeWork() {
   const memoizedSteps = useMemo(() => steps, []);
 
   return (
-    <div className="relative text-center py-8 px-5 bg-black text-white z-10">
+    <div className="relative text-center py-8 px-4 bg-black text-white z-10">
       {/* Background Image */}
       <div
         className="absolute inset-0"
@@ -109,15 +109,15 @@ export default function HowWeWork() {
           How We Work
           <span className="h-[2px] w-7 bg-gradient-to-r from-green-500 to-blue-500"></span>
         </p> */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">
-          Our Signage Process
+        <h2 className="text-3xl md:text-5xl font-bold text-white mt-2">
+          Our Signage <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Process</span>
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mt-4"></div>
       </div>
 
       {/* Steps */}
       <div className="overflow-visible">
-      <div className="mb-4  grid grid-cols-2 md:grid-cols-3 gap-16 max-w-7xl mx-auto relative overflow-visible px-4">
+      <div className="mb-4  grid grid-cols-2 md:grid-cols-3 lg:gap-16 gap-6 max-w-7xl mx-auto relative overflow-visible px-4">
         {memoizedSteps.map(({ id, title, icon, description }, index) => (
           <Step
             key={id}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ChartNoAxesGantt, ChevronDown, Menu, MenuIcon, X } from "lucide-react";
+import { ChartNoAxesColumnDecreasing, ChartNoAxesGantt, ChevronDown, Menu, MenuIcon, X } from "lucide-react";
 import logo from "../assets/DSS_logo.png";
 import { Link } from "react-router-dom";
 const Header = () => {
@@ -98,19 +98,20 @@ setMenu(false)
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? " shadow-lg bg-blac backdrop-blur-2xl"
+            ? " shadow-lg bg-black backdrop-blur-2xl"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between  ">
             {/* Logo */}
-            <div className="relative flex items-center justify-center bg-white mt-0.5 ">
+            <div data-aos="fade-down"
+              data-aos-delay={200} className="relative flex items-center justify-center bg-white lg:mt-0.5 mt-1">
               <img
                 src={logo}
                 alt="Logo"
                 className={`${
-                  isScrolled ? "h-17" : "h-26"
+                  isScrolled ? "lg:h-17 h-12" : "lg:h-26 h-16"
                 }  z-20 transition-all duration-700 ease-in-out`}
               />
 
@@ -118,7 +119,7 @@ setMenu(false)
               <div
                 className={`${
                   isScrolled ? "bottom-[-20px]" : "bottom-[-30px]"
-                } absolute  left-1/2 transform -translate-x-1/2 
+                } absolute lg:block hidden  left-1/2 transform -translate-x-1/2 
                   w-0 h-0 border-l-[35px] border-r-[35px] border-t-[40px] 
                   border-l-transparent border-r-transparent border-t-white z-10 transition-all duration-700 ease-in-out `}
               ></div>
@@ -127,10 +128,11 @@ setMenu(false)
             <nav
               className={`${
                 isScrolled ? "text-base bg-black" : "text-lg "
-              } hidden lg:flex  items-center space-x-8  backdrop-blur-3xl px-4 py-2 rounded-xl border  border-gray-300/10`}
+              } ${isMobileMenuOpen ? 'bg-white':''} hidden lg:flex  items-center space-x-8  backdrop-blur-3xl px-4 py-2 rounded-xl border   border-gray-300/10`}
             >
               {navItems.slice(0,5).map((item, index) => (
-                <div key={index} className="relative group">
+                <div key={index} className="relative group" data-aos="fade-down"
+              data-aos-delay={index * 100}>
                   <Link
                     to={item.path}
                     className={`flex  items-center space-x-1 font-medium transition-all duration-200 py-2 text-white hover:bg-gradient-to-r to-green-400 from-blue-400 hover:bg-clip-text hover:text-transparent hover:-rotate-2 ${
@@ -189,7 +191,8 @@ setMenu(false)
                   
                 </div>
               ))}
-              <button onClick={handleClick} className="text-white relative cursor-pointer">
+              <button data-aos="fade-down"
+              data-aos-delay={700} onClick={handleClick} className="text-white relative cursor-pointer">
                  {!menu ?  <MenuIcon /> : <ChartNoAxesGantt /> }   
                   </button>
                    <div
@@ -235,11 +238,11 @@ setMenu(false)
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
                 isScrolled
-                  ? "text-gray-900 hover:bg-gray-100"
+                  ? "text-gray-100 hover:bg-gray-200"
                   : "text-white hover:bg-white/10"
               }`}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={35} /> : <ChartNoAxesColumnDecreasing className="-rotate-90" size={35} />}
             </button>
           </div>
         </div>
@@ -247,12 +250,12 @@ setMenu(false)
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
-            <div className="px-4 py-4 space-y-3 max-h-96 overflow-y-auto">
+            <div className="px-4 py-4 space-y-2 max-h-[100dvh] overflow-y-auto">
               {navItems.map((item, index) => (
                 <div key={index}>
                   <Link
                     to={item.path}
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
+                    className="flex border-b border-gray-200/40 items-center justify-between py-1.5 text-gray-700 hover:text-green-600 font-medium transition-colors duration-200"
                     onClick={() => {
                       if (item.dropdown) {
                         setActiveDropdown(
@@ -273,12 +276,12 @@ setMenu(false)
 
                   {/* Mobile Dropdown */}
                   {item.dropdown && activeDropdown === index && (
-                    <div className="ml-4 mt-2 space-y-2 pb-3">
+                    <div className=" mt-2 space-y-1 ">
                       {item.dropdown.map((subItem, subIndex) => (
                         <Link
                           key={subIndex.path}
                           path="#"
-                          className="block py-2 text-gray-600 hover:text-green-600 transition-colors duration-200 text-sm"
+                          className="block pl-4 py-1 bg-gray-100 text-gray-600 hover:text-green-600 transition-colors duration-200 text-sm"
                         >
                           {subItem.name}
                         </Link>
@@ -289,9 +292,9 @@ setMenu(false)
               ))}
 
               {/* Mobile CTA Button */}
-              <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300">
+              <Link to='/contact' className="w-full block mt-4 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300">
                 Get a Quote
-              </button>
+              </Link>
             </div>
           </div>
         )}

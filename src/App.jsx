@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
@@ -13,7 +13,16 @@ import ContactUsPage from './pages/ContactUsPage'
 import ScrollToTop from './components/ScrollToTop'
 import ProductPage from './pages/ProductPage'
 import ProductDetailPage from './pages/ProductDetail'
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function App() {
+   useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false,
+    });
+  }, []);
   return (
     <>
     <Header/>

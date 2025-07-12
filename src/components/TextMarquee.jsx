@@ -26,7 +26,7 @@ export default function TextMarquee() {
           return (
             <div key={index} className="flex items-center mx-8">
               <IconComponent className="w-8 h-8 text-white mr-3" />
-              <span className="text-3xl font-semibold tracking-wide">
+              <span className="lg:text-3xl text-2xl font-semibold tracking-wide">
                 {service.text}
               </span>
               {/* <Star className="w-4 h-4 text-yellow-400 ml-4" /> */}

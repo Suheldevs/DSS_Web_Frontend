@@ -127,7 +127,7 @@ export default function BlogSection() {
        <div className="text-center mb-6">
 
   {/* Heading */}
-  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-2">
+  <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mt-3 mb-2">
     Latest<span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Articles</span>
   </h2>
 
@@ -135,7 +135,7 @@ export default function BlogSection() {
   <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-2"></div>
 
   {/* Subtitle */}
-  <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+  <p className="text-base md:text-xl text-gray-700 max-w-3xl mx-auto">
     Stay updated with the latest trends, insights, and innovations in signage, branding, and digital display solutions.
   </p>
 </div>

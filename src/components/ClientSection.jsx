@@ -98,11 +98,11 @@ export default function ClientSection() {
         
         {/* Header */}
         <div className="text-center mb-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-2">
             Our <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Clients</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-2"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="lg:text-lg  text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Trusted by leading organizations across various sectors for comprehensive signage solutions.
           </p>
         </div>

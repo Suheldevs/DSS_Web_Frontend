@@ -65,7 +65,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-black via-neutral-900 to-neutral-950 text-white">
      
       {/* Newsletter Signup */}
-        <div className=" py-8 border-b border-neutral-800">
+        <div className=" py-8 px-4 border-b border-neutral-800">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-xl font-semibold text-white mb-4">
               Stay Updated with Latest Digital Signage Trends
@@ -87,7 +87,7 @@ const Footer = () => {
         </div>
      
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           
           {/* Company Info */}
@@ -209,13 +209,12 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-neutral-800 bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-3">
+        <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              <div className="justify-center items-center flex gap-2">
-             Copyright © {currentYear} 3S Digital Signage Solutions. All rights reserved.
-                  <div>Designed By</div>
-                  <Link
+              <div className="justify-center text-xs lg:text-sm text-neutral-300 items-center lg:flex gap-2">
+             Copyright © {currentYear} 3S Digital Signage Solutions. All rights reserved. Designed By
+                  <Link 
+                  className='inline-flex'
                     aria-label="Code Crafter"
                     to="https://www.codecrafter.co.in/"
                     target="_blank"
@@ -227,8 +226,7 @@ const Footer = () => {
                     />
                   </Link>
                 </div>
-            </div>
-            <div className="flex space-x-6 text-sm">
+            <div className="flex space-x-6 lg:my-0 my-2 lg:text-sm text-xs">
               <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</a>
               <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Cookie Policy</a>

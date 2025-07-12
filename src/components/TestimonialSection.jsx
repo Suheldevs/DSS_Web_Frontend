@@ -45,11 +45,11 @@ const TestimonialSection = () => {
   ];
 
   return (
-    <div className="  py-12 bg-black ">
+    <div className="  py-8 bg-black ">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
             What our clients{" "}
             <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               say!

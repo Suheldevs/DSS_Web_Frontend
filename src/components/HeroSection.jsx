@@ -29,7 +29,7 @@ const HeroSection = () => {
       title: "Elevate Your Space with",
       highlight: "Smart Digital Solutions",
       subtitle: "From corporate offices to retail spaces, our intelligent digital signage solutions create immersive experiences that leave lasting impressions.",
-      buttonText: "Get Started"
+      buttonText: "View Our Work"
     },
     // {
     //   id: 4,
@@ -69,7 +69,7 @@ const HeroSection = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative lg:h-screen h-[70vh] overflow-hidden">
       {/* Background Image Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -99,7 +99,7 @@ const HeroSection = () => {
         onClick={prevSlide}
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 group"
+        className="absolute lg:block hidden left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 group"
       >
         <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" />
       </button>
@@ -108,21 +108,21 @@ const HeroSection = () => {
         onClick={nextSlide}
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 group"
+        className="absolute lg:block hidden right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 group"
       >
         <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
       </button>
 
       {/* Hero Content */}
-      <div className="relative mt-20 z-10 flex items-center justify-center min-h-screen px-6 lg:px-8 pt-20">
+      <div className="relative lg:mt-20 mt-12 z-10 flex items-center justify-center lg:min-h-screen px-6 lg:px-8 pt-20">
         <div className="text-center max-w-6xl mx-auto">
           {/* Main Title with Animation */}
-          <div className="mb-8 overflow-hidden">
+          <div className="lg:mb-8 mb-2 overflow-hidden">
             <h1 
               key={currentSlide}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in-up"
+              className="text-3xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in-up"
             >
-              <span className="text-white block mb-2">
+              <span className="text-white text-xl md:text-6xl lg:text-7xl block mb-2">
                 {currentSlideData.title}
               </span>
               <span className="bg-gradient-to-r from-green-500  to-blue-500 bg-clip-text text-transparent block">
@@ -132,17 +132,18 @@ const HeroSection = () => {
           </div>
 
           {/* Subtitle with Animation */}
-          <div className="mb-12 overflow-hidden">
+          <div className="lg:mb-12 mb-6 overflow-hidden">
             <p 
               key={`subtitle-${currentSlide}`}
-              className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200"
+              className="text-base md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200"
             >
               {currentSlideData.subtitle}
             </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div data-aos="fade-up"
+              data-aos-delay={100} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <button className="group px-6 py-3 bg-white text-gray-900 hover:text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500">
               <span className="flex items-center">
                 {currentSlideData.buttonText}
@@ -150,14 +151,14 @@ const HeroSection = () => {
               </span>
             </button>
             
-            <button className="group flex items-center px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
+            <button className="group flex items-center px-12 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
               {/* <Play className="w-5 h-5 mr-2" /> */}
-              Our Portfolio
+              Contact Us
             </button>
           </div>
 
           {/* Slide Indicators */}
-          <div className="flex justify-center space-x-3">
+          <div className="lg:flex hidden justify-center space-x-3">
             {slides.map((_, index) => (
               <button
                 key={index}

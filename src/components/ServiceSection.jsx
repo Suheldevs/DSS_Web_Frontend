@@ -33,11 +33,13 @@ const ServiceSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
           {services.map((service, index) => (
             <div
+              data-aos="fade-up"
+    data-aos-delay={index * 100}
               key={service.id}
-              className="group border  border-gray-500/20  relative h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+              className="group border  lg:border-gray-500/20 border-gray-400/30  relative lg:h-80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
               onMouseEnter={() => setActiveService(index)}
             >
               {/* Background Image */}
