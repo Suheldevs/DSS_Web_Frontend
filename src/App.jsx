@@ -47,6 +47,7 @@ function App() {
       <Route path='/Products/:slug' element={<ProductDetailPage/>} />
     </Routes>
     <Footer/>
+  
     </>
   )
 }
