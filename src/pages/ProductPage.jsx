@@ -268,12 +268,12 @@ const ProductPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
     
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-4 py-14">
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-4">
           {/* Sidebar Filters */}
           <div className="lg:w-1/4">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-15 ">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Filters</h2>
               
               {/* Search */}

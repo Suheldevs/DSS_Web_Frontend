@@ -24,7 +24,7 @@ const Header = () => {
     },
     {
       name: "About DSS",
-      path: "/about",
+      path: "/about/story",
        dropdown: [
         { name: "Our Brandstory", path: "/about/story" },
         { name: "Director Message", path: "/about/director-message" },
