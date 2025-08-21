@@ -278,7 +278,7 @@ const ContactUsPage = () => {
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
-                  <div key={index} className="border-t-2 border-green-500 relative z-20 bg-white rounded-md p-3 shadow-md hover:shadow-lg transition-all duration-300">
+                  <div key={index} className="border-t-4 border-green-500 relative z-20 bg-white rounded-md p-3 shadow-md hover:shadow-lg transition-all duration-300">
                     <div
                                       className="absolute inset-0 overflow-hidden"
                                       style={{
