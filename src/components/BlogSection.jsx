@@ -11,60 +11,95 @@ const Link = ({ to, children, className, ...props }) => (
 
 const blogPosts = [
   {
-    id: 1,
-    title: "Transforming Airports with Wayfinding Signage",
-    description: "Explore how effective signage enhances navigation and improves passenger experience in busy airport environments.",
-    image: "https://picsum.photos/400/300?random=1",
-    date: "Dec 15, 2024",
-    category: "Airport Signage",
-    slug: "airport-wayfinding-signage"
+    slug: "future-of-digital-signage-2025",
+    title: "The Future of Digital Signage in 2025",
+    description: `
+      <p>Digital signage is transforming how businesses communicate with their customers. 
+      From retail stores to corporate offices, digital displays are being used to deliver 
+      personalized, real-time content.</p>
+      <ul>
+        <li><strong>AI Integration:</strong> Smarter content recommendations</li>
+        <li><strong>Cloud-Based Solutions:</strong> Manage displays remotely</li>
+        <li><strong>Interactive Screens:</strong> Enhanced customer engagement</li>
+      </ul>
+    `,
+    category: "Trends",
+    imageUrl: "https://picsum.photos/seed/digital1/600/400",
+    updatedAt: "2025-08-15T10:00:00Z",
   },
   {
-    id: 2,
-    title: "Eco-Friendly Materials in Signage Fabrication",
-    description: "Discover sustainable materials that reduce environmental impact while maintaining quality and durability in signage.",
-    image: "https://picsum.photos/400/300?random=2",
-    date: "Dec 12, 2024",
-    category: "Sustainability",
-    slug: "eco-friendly-signage-materials"
+    slug: "benefits-of-digital-signage",
+    title: "Top 5 Benefits of Digital Signage for Businesses",
+    description: `
+      <p>Adopting digital signage solutions offers several benefits that help companies 
+      stand out and improve customer experience.</p>
+      <ol>
+        <li>Boosts customer engagement with dynamic content</li>
+        <li>Reduces printing and operational costs</li>
+        <li>Increases brand visibility and awareness</li>
+        <li>Enables real-time promotions and updates</li>
+        <li>Improves internal communication for employees</li>
+      </ol>
+    `,
+    category: "Business",
+    imageUrl: "https://picsum.photos/seed/digital2/600/400",
+    updatedAt: "2025-08-18T14:20:00Z",
   },
   {
-    id: 3,
-    title: "Smart Signage for Smart Cities for better Apperience.",
-    description: "How digital signage and smart displays are redefining urban infrastructure and public communication in smart cities.",
-    image: "https://picsum.photos/400/300?random=3",
-    date: "Dec 10, 2024",
-    category: "Digital Signage",
-    slug: "smart-city-digital-signage"
+    slug: "digital-signage-industries",
+    title: "Industries Using Digital Signage in 2025",
+    description: `
+      <p>Digital signage is no longer limited to advertising. Multiple industries 
+      are leveraging it for both customer-facing and internal communication purposes:</p>
+      <ul>
+        <li><strong>Retail:</strong> Product promotions and in-store offers</li>
+        <li><strong>Hospitality:</strong> Interactive guest information boards</li>
+        <li><strong>Corporate:</strong> Employee communication dashboards</li>
+        <li><strong>Healthcare:</strong> Patient queue management and awareness</li>
+        <li><strong>Education:</strong> Smart campus announcements</li>
+      </ul>
+    `,
+    category: "Industries",
+    imageUrl: "https://picsum.photos/seed/digital3/600/400",
+    updatedAt: "2025-08-21T09:45:00Z",
   },
   {
-    id: 4,
-    title: "Creative Retail Signage at DSS That Drives Sales",
-    description: "Uncover signage strategies that attract foot traffic and boost conversion in competitive retail spaces.",
-    image: "https://picsum.photos/400/300?random=4",
-    date: "Dec 8, 2024",
-    category: "Retail Signage",
-    slug: "retail-signage-strategies"
+    slug: "choosing-digital-signage",
+    title: "How to Choose the Right Digital Signage Solution",
+    description: `
+      <p>With so many options available, selecting the right digital signage solution 
+      can be overwhelming. Here are some factors to consider:</p>
+      <ul>
+        <li>Define your business goals (marketing, communication, engagement)</li>
+        <li>Choose cloud-based vs. on-premise solutions</li>
+        <li>Check compatibility with existing hardware</li>
+        <li>Evaluate content management system (CMS) features</li>
+        <li>Consider scalability for future expansion</li>
+      </ul>
+    `,
+    category: "Guides",
+    imageUrl: "https://picsum.photos/seed/digital4/600/400",
+    updatedAt: "2025-08-23T11:10:00Z",
   },
   {
-    id: 5,
-    title: "Navigational Signage for Large Campuses",
-    description: "Learn how proper directional signage simplifies movement across hospitals, universities, and corporate parks.",
-    image: "https://picsum.photos/400/300?random=5",
-    date: "Dec 5, 2024",
-    category: "Wayfinding",
-    slug: "campus-navigation-signage"
+    slug: "case-study-digital-signage",
+    title: "Case Study: How Retailers Boosted Sales with Digital Signage",
+    description: `
+      <p>Retailers adopting digital signage have seen a measurable increase in sales 
+      and customer satisfaction. Here are some results from real implementations:</p>
+      <ul>
+        <li>20% increase in impulse purchases through digital promotions</li>
+        <li>Improved customer flow with interactive wayfinding</li>
+        <li>Higher engagement with personalized content in stores</li>
+      </ul>
+      <p>This proves digital signage is not just a tool, but a long-term business asset.</p>
+    `,
+    category: "Case Studies",
+    imageUrl: "https://picsum.photos/seed/digital5/600/400",
+    updatedAt: "2025-08-24T08:30:00Z",
   },
-  {
-    id: 6,
-    title: "Mastering Signage Project Management from DSS",
-    description: "From client briefing to installation—best practices for ensuring signage projects are smooth and successful.",
-    image: "https://picsum.photos/400/300?random=6",
-    date: "Dec 3, 2024",
-    category: "Project Management",
-    slug: "signage-project-management"
-  }
 ];
+
 
 
 export default function BlogSection() {
@@ -182,7 +217,7 @@ export default function BlogSection() {
                     {/* Image section */}
                     <div className="h-1/2 overflow-hidden">
                       <img 
-                        src={post.image} 
+                        src={post.imageUrl} 
                         alt={post.title} 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />

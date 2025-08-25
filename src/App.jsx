@@ -21,6 +21,7 @@ import DirectorMessage from './pages/about/DirectorMessage'
 import VisionMission from './pages/about/VisionMission'
 import TeamPage from './pages/about/TeamPage'
 import BlogPage from './pages/BlogPage'
+import BlogDetail from './pages/BlogDetail'
 function App() {
    useEffect(() => {
     AOS.init({
@@ -37,6 +38,7 @@ function App() {
       {/* <Route path='/about' element={<AboutPage/>} /> */}
       <Route path='/about/story' element={<BrandStory/>} />
       <Route path='/blog' element={<BlogPage/>} />
+      <Route path='/blog-detail/:slug' element={<BlogDetail/>} />
       <Route path='/about/director-message' element={<DirectorMessage/>} />
       <Route path='/about/vision&mission' element={<VisionMission/>} />
       <Route path='/about/team' element={<TeamPage/>} />
