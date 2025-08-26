@@ -1,169 +1,88 @@
-import { ArrowRight, Clock, Tag } from 'lucide-react'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Breadcrumb from '../components/Breadcrumb';
+import { ArrowRight, Clock, Tag } from "lucide-react";
+import React from "react";
+import { Link } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
+import { useGetAllBlogsQuery } from "../api/blog.api";
+import formatDate from "../utils/FormateDate";
+import Loader from "../utils/Loader";
+import { useEffect } from "react";
 
 function BlogPage() {
+  const backendUrl = import.meta.env.VITE_BACKEND;
+  const { data: blogData, isLoading, isError } = useGetAllBlogsQuery();
 
- const blogPosts = [
-  {
-    slug: "future-of-digital-signage-2025",
-    title: "The Future of Digital Signage in 2025",
-    description: `
-      <p>Digital signage is transforming how businesses communicate with their customers. 
-      From retail stores to corporate offices, digital displays are being used to deliver 
-      personalized, real-time content.</p>
-      <ul>
-        <li><strong>AI Integration:</strong> Smarter content recommendations</li>
-        <li><strong>Cloud-Based Solutions:</strong> Manage displays remotely</li>
-        <li><strong>Interactive Screens:</strong> Enhanced customer engagement</li>
-      </ul>
-    `,
-    category: "Trends",
-    imageUrl: "https://picsum.photos/seed/digital1/600/400",
-    updatedAt: "2025-08-15T10:00:00Z",
-  },
-  {
-    slug: "benefits-of-digital-signage",
-    title: "Top 5 Benefits of Digital Signage for Businesses",
-    description: `
-      <p>Adopting digital signage solutions offers several benefits that help companies 
-      stand out and improve customer experience.</p>
-      <ol>
-        <li>Boosts customer engagement with dynamic content</li>
-        <li>Reduces printing and operational costs</li>
-        <li>Increases brand visibility and awareness</li>
-        <li>Enables real-time promotions and updates</li>
-        <li>Improves internal communication for employees</li>
-      </ol>
-    `,
-    category: "Business",
-    imageUrl: "https://picsum.photos/seed/digital2/600/400",
-    updatedAt: "2025-08-18T14:20:00Z",
-  },
-  {
-    slug: "digital-signage-industries",
-    title: "Industries Using Digital Signage in 2025",
-    description: `
-      <p>Digital signage is no longer limited to advertising. Multiple industries 
-      are leveraging it for both customer-facing and internal communication purposes:</p>
-      <ul>
-        <li><strong>Retail:</strong> Product promotions and in-store offers</li>
-        <li><strong>Hospitality:</strong> Interactive guest information boards</li>
-        <li><strong>Corporate:</strong> Employee communication dashboards</li>
-        <li><strong>Healthcare:</strong> Patient queue management and awareness</li>
-        <li><strong>Education:</strong> Smart campus announcements</li>
-      </ul>
-    `,
-    category: "Industries",
-    imageUrl: "https://picsum.photos/seed/digital3/600/400",
-    updatedAt: "2025-08-21T09:45:00Z",
-  },
-  {
-    slug: "choosing-digital-signage",
-    title: "How to Choose the Right Digital Signage Solution",
-    description: `
-      <p>With so many options available, selecting the right digital signage solution 
-      can be overwhelming. Here are some factors to consider:</p>
-      <ul>
-        <li>Define your business goals (marketing, communication, engagement)</li>
-        <li>Choose cloud-based vs. on-premise solutions</li>
-        <li>Check compatibility with existing hardware</li>
-        <li>Evaluate content management system (CMS) features</li>
-        <li>Consider scalability for future expansion</li>
-      </ul>
-    `,
-    category: "Guides",
-    imageUrl: "https://picsum.photos/seed/digital4/600/400",
-    updatedAt: "2025-08-23T11:10:00Z",
-  },
-  {
-    slug: "case-study-digital-signage",
-    title: "Case Study: How Retailers Boosted Sales with Digital Signage",
-    description: `
-      <p>Retailers adopting digital signage have seen a measurable increase in sales 
-      and customer satisfaction. Here are some results from real implementations:</p>
-      <ul>
-        <li>20% increase in impulse purchases through digital promotions</li>
-        <li>Improved customer flow with interactive wayfinding</li>
-        <li>Higher engagement with personalized content in stores</li>
-      </ul>
-      <p>This proves digital signage is not just a tool, but a long-term business asset.</p>
-    `,
-    category: "Case Studies",
-    imageUrl: "https://picsum.photos/seed/digital5/600/400",
-    updatedAt: "2025-08-24T08:30:00Z",
-  },
-];
+  if (isLoading) {
+    return <Loader/>;
+  }
+
+  if (isError) {
+    return <div className="text-center text-red-500 py-10">Failed to load blogs</div>;
+  }
 
   return (
     <>
-<Breadcrumb 
-  title="Our Latest Articles "
-  items={[
-    { label: 'Home', link: '/' },
-    { label: 'Blog', link: '/blog' }
-  ]}
-/>
-    <div className='max-w-7xl mx-auto px-4 grid grid-cols-3 py-8 gap-4'>
-{blogPosts.map(post => (
-                <div 
-                  key={post.id} 
-                  className=""
+      <Breadcrumb
+        title="Our Latest Articles"
+        items={[
+          { label: "Home", link: "/" },
+          { label: "Blog", link: "/blog" },
+        ]}
+      />
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-8 gap-6">
+        {blogData?.data?.map((post) => (
+          <div key={post._id}>
+            <div className="bg-white flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group rounded-md">
+              {/* Image section */}
+              <div className="h-52 overflow-hidden">
+                <img
+                  src={post?.image?.public_url || `${backendUrl}/${post?.image?.url}`}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
 
-                >
-                  <div className="bg-white aspect-auto flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200  group">
-                    {/* Image section */}
-                    <div className="h-1/2 overflow-hidden">
-                      <img 
-                        src={post.imageUrl} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    
-                    {/* Content section */}
-                    <div className="p-4 flex flex-col flex-grow">
-                      {/* Date and Category row */}
-                      <div className="flex justify-between items-center mb-3 text-xs">
-                        <div className="flex items-center text-gray-500">
-                          <Clock className="h-3 w-3 mr-1" />
-                          {post.date}
-                        </div>
-                        <div className="inline-flex items-center bg-green-600 px-2 py-1 rounded-sm text-xs font-medium text-white">
-                          <Tag className="h-3 w-3 mr-1" />
-                          {post.category}
-                        </div>
-                      </div>
-                      
-                      {/* Title */}
-                      <h3 className="font-bold text-lg text-black mb-2 line-clamp-2 group-hover:text-green-600 group-hover:underline transition-colors duration-300">
-                        {post.title}
-                      </h3>
-                      
-                      {/* Description */}
-                      <p className="text-gray-600 mb-4 line-clamp-2 flex-grow text-sm">
-                        {post.description}
-                      </p>
-                      
-                      {/* Read More button */}
-                      <div className="mt-auto">
-                        <Link 
-                          to={`/blog-detail/${post.slug}`}
-                          className="inline-flex items-center text-sm font-medium text-green-600 hover:text-green-700 transition-colors duration-300 group-hover:translate-x-1"
-                        >
-                          Read More
-                          <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
-                        </Link>
-                      </div>
-                    </div>
+              {/* Content section */}
+              <div className="p-4 flex flex-col flex-grow">
+                {/* Date and Category row */}
+                <div className="flex justify-between items-center mb-3 text-xs">
+                  <div className="flex items-center text-gray-500">
+                    <Clock className="h-3 w-3 mr-1" />
+                   {formatDate(post?.updatedAt)}
+                  </div>
+                  <div className="inline-flex items-center bg-green-600 px-2 py-1 rounded-sm text-xs font-medium text-white">
+                    <Tag className="h-3 w-3 mr-1" />
+                  {post?.category || "Uncategorized"}
                   </div>
                 </div>
-              ))}
 
-    </div>
-        </>
-  )
+                {/* Title */}
+                <h3 className="font-bold text-lg text-black mb-2 line-clamp-2 group-hover:text-green-600 group-hover:underline transition-colors duration-300">
+                  {post.title}
+                </h3>
+
+                {/* Description */}
+                <div
+                  className="text-gray-600 mb-4 line-clamp-2 flex-grow text-sm"
+                  dangerouslySetInnerHTML={{ __html: post.description }}
+                />
+
+                {/* Read More button */}
+                <div className="mt-auto">
+                  <Link
+                    to={`/blog-detail/${post.slug}`}
+                    className="inline-flex items-center text-sm font-medium text-green-600 hover:text-green-700 transition-colors duration-300 group-hover:translate-x-1"
+                  >
+                    Read More
+                    <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 }
 
-export default BlogPage
+export default BlogPage;

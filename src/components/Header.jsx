@@ -171,6 +171,7 @@ setMenu(false)
                     >
                       {item.dropdown.map((subItem, subIndex) => (
                         <Link
+                        key={subIndex}
                           to={subItem.path}
                           className="block px-4 py-1.5 tracking-wide text-gray-700 hover:tracking-wider hover:bg-blue-50 hover:text-black-600 transition-colors duration-200 text-sm font-medium"
                         >
