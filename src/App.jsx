@@ -22,6 +22,8 @@ import VisionMission from './pages/about/VisionMission'
 import TeamPage from './pages/about/TeamPage'
 import BlogPage from './pages/BlogPage'
 import BlogDetail from './pages/BlogDetail'
+import CareerPage from './pages/CareerPage'
+import ServiceDetailPage from './pages/ServiceDetail'
 function App() {
    useEffect(() => {
     AOS.init({
@@ -43,12 +45,14 @@ function App() {
       <Route path='/about/vision&mission' element={<VisionMission/>} />
       <Route path='/about/team' element={<TeamPage/>} />
       <Route path='/services' element={<ServicePage/>} />
+      <Route path='/services/:slug' element={<ServiceDetailPage/>} />
       <Route path='/client' element={<ClientPage/>} />
       <Route path='/projects' element={<ProjectPage/>} />
       <Route path='/testimonial' element={<TestimonialPage/>} />
       <Route path='/contact' element={<ContactUsPage/>} />
       <Route path='/Products' element={<ProductPage/>} />
       <Route path='/Products/:slug' element={<ProductDetailPage/>} />
+      <Route path='/career' element={<CareerPage/>} />
     </Routes>
     <Footer/>
   

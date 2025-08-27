@@ -43,11 +43,9 @@ const Footer = () => {
   // ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Case Studies', href: '#case-studies' },
-    { name: 'Careers', href: '#careers' },
-    { name: 'Support', href: '#support' },
-    { name: 'Blog', href: '#blog' },
+    { name: 'About Us', href: '/about/story' },
+    { name: 'Careers', href: '/career' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Admin Login', href: '#admin' }
   ];
 
@@ -169,14 +167,14 @@ const Footer = () => {
             </h3>
             <div className="grid grid-cols-2 gap-2 mb-4">
               {quickLinks.map((link, index) => (
-                <a 
+                <Link 
                   key={index}
-                  href={link.href}
+                  to={link.href}
                   className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm flex items-center group"
                 >
                   <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
                   <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
+                </Link>
               ))}
             </div>
 
