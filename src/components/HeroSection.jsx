@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Play, ArrowRight, Monitor, Zap, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 import bread from '../assets/bread.jpg'
+import {Link} from 'react-router-dom'
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -144,17 +145,17 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div data-aos="fade-up"
               data-aos-delay={100} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <button className="group px-6 py-3 bg-white text-gray-900 hover:text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500">
+            <Link to="/projects" className="group px-6 py-3 bg-white text-gray-900 hover:text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500">
               <span className="flex items-center">
                 {currentSlideData.buttonText}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
-            </button>
+            </Link>
             
-            <button className="group flex items-center px-12 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
+            <Link to="/contact" className="group cursor-pointer flex items-center px-12 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
               {/* <Play className="w-5 h-5 mr-2" /> */}
               Contact Us
-            </button>
+            </Link>
           </div>
 
           {/* Slide Indicators */}

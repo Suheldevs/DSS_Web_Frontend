@@ -61,14 +61,7 @@ const ProductDetailPage = () => {
     return div.textContent || div.innerText || "";
   };
 
-  // Get clean description
-  const getProductDescription = () => {
-    if (product?.description) {
-      return stripHtmlTags(product.description);
-    }
-    return null;
-  };
-
+ 
   // Format date for breadcrumb or display
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -145,7 +138,7 @@ const ProductDetailPage = () => {
         ]}
       />
       <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Product Images */}
             <div className="space-y-4">
@@ -343,9 +336,11 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Additional Information */}
-          {getProductDescription() ? (
-            <div className="mt-10 bg-white rounded-lg shadow-lg p-4">
-              {getProductDescription()}
+          {product?.description ? (
+            <div className="mt-4  blog"
+            dangerouslySetInnerHTML={{ __html: product.description }}
+            >
+               
             </div>
           ) : null}
         </div>

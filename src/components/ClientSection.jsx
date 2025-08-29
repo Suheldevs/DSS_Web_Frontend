@@ -1,56 +1,44 @@
 import { useState, useEffect } from 'react';
+import c1 from "../assets/client/alyantra.jpg";
+import c2 from "../assets/client/barista.jpg";
+import c3 from "../assets/client/bhalla.jpg";
+import c4 from "../assets/client/bikaner.jpg";
+import c6 from "../assets/client/coca-cola.jpg";
+import c7 from "../assets/client/dr-bagchi.jpg";
+import c8 from "../assets/client/f.jpg";
+import c9 from "../assets/client/golden-tea.jpg";
+import c10 from "../assets/client/health-city-vistra.jpg";
+import c11 from "../assets/client/naushijaan.jpg";
+import c12 from "../assets/client/rolex.jpg";
+import c13 from "../assets/client/rominus.jpg";
+import c14 from "../assets/client/salasar.jpg";
+import c15 from "../assets/client/slmg.jpg";
+import c16 from "../assets/client/smile-n-glow.jpg";
+import c17 from "../assets/client/uday.jpg";
+import c18 from "../assets/client/webley.jpg";
+
+const clients = [
+  { name: "alyantra", logo: c1 },
+  { name: "barista", logo: c2 },
+  { name: "bhalla", logo: c3 },
+  { name: "bikaner", logo: c4 },
+  { name: "coca-cola", logo: c6 },
+  { name: "dr-bagchi", logo: c7 },
+  { name: "f", logo: c8 },
+  { name: "golden-tea", logo: c9 },
+  { name: "health-city-vistra", logo: c10 },
+  { name: "naushijaan", logo: c11 },
+  { name: "rolex", logo: c12 },
+  { name: "rominus", logo: c13 },
+  { name: "salasar", logo: c14 },
+  { name: "slmg", logo: c15 },
+  { name: "smile-n-glow", logo: c16 },
+  { name: "uday", logo: c17 },
+  { name: "webley", logo: c18 },
+];
 
 export default function ClientSection() {
-  const clients = [
-    { 
-      name: "Delhi International Airport Ltd. (DIAL)", 
-      logo: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "GMR Goa International Airport Ltd. (GGIAL)", 
-      logo: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "CISF Unit at IGI Airport, New Delhi", 
-      logo: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "Municipal Corporation Gurugram", 
-      logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "Public Works Department (PWD)", 
-      logo: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "New Delhi Municipal Council (NDMC)", 
-      logo: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "Knight Frank India Pvt. Ltd.", 
-      logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "GMR Infrastructure Ltd.", 
-      logo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "Indira Gandhi International Airport", 
-      logo: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "Noida Authority", 
-      logo: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "Gurgaon Development Authority", 
-      logo: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=200&h=200&fit=crop&crop=center"
-    },
-    { 
-      name: "Delhi Metro Rail Corporation", 
-      logo: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=200&h=200&fit=crop&crop=center"
-    }
-  ];
+  
 
   const [currentIndex, setCurrentIndex] = useState(0);
   
@@ -125,6 +113,7 @@ export default function ClientSection() {
                     <div className=" bg-gray-50 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 p-2 border border-gray-200">
                       <img 
                         src={client.logo} 
+                    
                         alt={`${client.name} logo`}
                         className="w-full h-40 object-cover rounded-lg"
                         loading="lazy"

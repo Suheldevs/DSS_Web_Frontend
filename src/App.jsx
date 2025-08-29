@@ -24,6 +24,10 @@ import BlogPage from './pages/BlogPage'
 import BlogDetail from './pages/BlogDetail'
 import CareerPage from './pages/CareerPage'
 import ServiceDetailPage from './pages/ServiceDetail'
+import CookieBanner from './cookie/CookieBanner'
+import { ToastContainer } from "react-toastify";
+import PrivacyPolicy from './pages/PrivacyPage'
+import CookiePolicy from './cookie/CookiePolicy'
 function App() {
    useEffect(() => {
     AOS.init({
@@ -35,6 +39,8 @@ function App() {
     <>
     <Header/>
     <ScrollToTop/>
+      <CookieBanner />
+       <ToastContainer/>
     <Routes>
       <Route path='/' element={<Home/>} />
       {/* <Route path='/about' element={<AboutPage/>} /> */}
@@ -53,6 +59,8 @@ function App() {
       <Route path='/Products' element={<ProductPage/>} />
       <Route path='/Products/:slug' element={<ProductDetailPage/>} />
       <Route path='/career' element={<CareerPage/>} />
+      <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
+      <Route path='/cookie-policy' element={<CookiePolicy/>} />
     </Routes>
     <Footer/>
   

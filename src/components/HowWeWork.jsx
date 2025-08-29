@@ -104,11 +104,6 @@ export default function HowWeWork() {
 
       {/* Header */}
       <div className="container mx-auto mb-10">
-        {/* <p className="lg:text-lg text-white uppercase font-medium flex items-center justify-center gap-2">
-          <span className="h-[2px] w-7 bg-gradient-to-r from-green-500 to-blue-500"></span>
-          How We Work
-          <span className="h-[2px] w-7 bg-gradient-to-r from-green-500 to-blue-500"></span>
-        </p> */}
         <h2 className="text-3xl md:text-5xl font-bold text-white mt-2">
           Our Signage <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Process</span>
         </h2>

@@ -97,9 +97,10 @@ const TimelineSection = () => {
         <div className="relative">
           <div className="relative overflow-hidden rounded-2xl z-20 shadow-2xl">
             <img
-              src={currentData.image}
+              // src={currentData.image}
+              src='https://www.dssup.co.in/assets/Images%20Signage/about_dss.jpg'
               alt={currentData.title}
-              className="w-full h-96 object-cover transition-transform duration-500 hover:scale-105"
+              className="w-full h-96  transition-transform duration-500 hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6">

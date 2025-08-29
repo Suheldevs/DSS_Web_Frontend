@@ -197,8 +197,8 @@ export default function BlogSection() {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-600 mb-4 line-clamp-2 flex-grow text-sm">
-                        {post.description}
+                      <p className="text-gray-600 mb-4 line-clamp-2 flex-grow text-sm"   dangerouslySetInnerHTML={{ __html: post?.description }}>
+                    
                       </p>
 
                       {/* Read More button */}

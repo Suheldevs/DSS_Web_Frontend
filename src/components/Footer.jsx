@@ -18,9 +18,14 @@ import logo from '../assets/DSS_logo.png'
 import cclogo from '../assets/cc-logo.png'
 import { Link } from 'react-router-dom';
 import services from '../data//ServiceData.jsx'
+import { useNewsCreateMutation } from '../api/inquiry.api.js';
+import {toast} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [email, setEmail]= useState("")
+  const [addSubscriber, {isLoading, isError}] = useNewsCreateMutation()
   const branches = [
     { name: 'Lucknow (Head Office)', address: 'Sector 10, Indira Nagar, Lucknow - 226016' },
     { name: 'Azamgarh', address: 'Civil Lines, Azamgarh - 276001' },
@@ -29,18 +34,6 @@ const Footer = () => {
     { name: 'Saraimeer', address: 'Market Area, Saraimeer - 225412' }
   ];
 
-  // const services = [
-  //   'LED Video Walls',
-  //   'Outdoor Digital Displays',
-  //   'Indoor Digital Signage',
-  //   'Interactive Kiosks',
-  //   'High Rise Billboards',
-  //   'Navigation Displays',
-  //   'Retail Digital Screens',
-  //   'Corporate Signage',
-  //   'Event LED Screens',
-  //   'Smart City Solutions'
-  // ];
 
   const quickLinks = [
     { name: 'About Us', href: '/about/story' },
@@ -58,6 +51,33 @@ const Footer = () => {
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+
+ const handleSubmit = async(e) => {
+  e.preventDefault()
+    try {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!email) {
+        toast.error("Email is required");
+        return;
+      }
+
+      if (!emailRegex.test(email)) {
+        toast.error("Invalid email format");
+        return;
+      }
+await addSubscriber({formData:{email}}).unwrap()
+      toast.success("Email submitted successfully");
+      setEmail("")
+    } catch (err) {
+      toast.error("Something went wrong");
+      console.error(err);
+    }
+  };
 
   return (
     <footer className="bg-gradient-to-br from-black via-neutral-900 to-neutral-950 text-white">
@@ -71,16 +91,18 @@ const Footer = () => {
             <p className="text-gray-300 mb-6">
               Subscribe to our newsletter for industry insights, product updates, and exclusive offers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
                 type="email" 
+                value={email}
                 placeholder="Enter your email address"
+                onChange={handleChange}
                 className="flex-1 px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
               />
-              <button className="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-400 text-white font-medium rounded-lg hover:from-green-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
+              <button  className="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-400 text-white font-medium rounded-lg hover:from-green-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
                 Subscribe
               </button>
-            </div>
+            </form>
           </div>
         </div>
      
@@ -128,7 +150,7 @@ const Footer = () => {
               {services.slice(0, 8).map((service, index) => (
                 <Link 
                   key={index}
-                  to={service?.slug}
+                  to={`/services/${service?.slug}`}
                   className="flex items-center text-gray-300 hover:text-green-400 transition-colors duration-300 group"
                 >
                   <span className="text-sm group-hover:translate-x-1 transition-transform duration-300">{service.title}</span>
@@ -225,9 +247,8 @@ const Footer = () => {
                   </Link>
                 </div>
             <div className="flex space-x-6 lg:my-0 my-2 lg:text-sm text-xs">
-              <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Cookie Policy</a>
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</Link>
+              <Link to="/cookie-policy" className="text-gray-400 hover:text-green-400 transition-colors">Cookie Policy</Link>
             </div>
           </div>
         </div>

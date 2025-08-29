@@ -30,7 +30,15 @@ export const inquiryApi = createApi({
       }),
        invalidatesTags: ["Inquiry"],
     }),
+   
+    newsCreate: builder.mutation({
+      query: ({ formData }) => ({
+        url: `/news-latter`,
+        method: "POST",
+        data: formData,
+      }),
+    }),
   }),
 });
 
-export const { useInquiryCreateMutation, useGetAllInquiryQuery , useDeleteInquiryMutation } = inquiryApi;
+export const { useInquiryCreateMutation, useGetAllInquiryQuery , useDeleteInquiryMutation ,useNewsCreateMutation } = inquiryApi;

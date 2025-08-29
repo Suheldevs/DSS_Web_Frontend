@@ -68,9 +68,9 @@ const DirectorMessage = () => {
               <div className="relative w-80 h-80">
                 <div className="w-full h-full rounded-full border-4 border-green-400 overflow-hidden">
                   <img 
-                    src="/api/placeholder/300/300" 
+                    src="https://tse1.mm.bing.net/th/id/OIP.f3DM2upCo-p_NPRwBAwbKQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" 
                     alt="Director" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain  "
                   />
                 </div>
               </div>

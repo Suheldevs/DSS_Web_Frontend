@@ -11,6 +11,8 @@ import {
   CheckCircle
 } from 'lucide-react';
 import axios from 'axios'
+import {toast} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 const CareerPage = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -20,12 +22,13 @@ const CareerPage = () => {
     resume: null
   });
   const backendUrl = import.meta.env.VITE_BACKEND_URL
-  
+   const [loading, setLoading] = useState(false);
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     error: false
   });
-  
+
+
 const jobPositions = [
   { id: 1, title: "Automation Engineer", department: "Engineering", location: "Remote" },
   { id: 2, title: "Home Automation Technician", department: "Development", location: "Bangalore" },
@@ -51,31 +54,44 @@ const jobPositions = [
     });
   };
   
-  const handleSubmit = async(e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validate form (simplified)
+
     if (!formData.fullName || !formData.email || !formData.phone || !formData.jobProfile || !formData.resume) {
       setFormStatus({ submitted: false, error: true });
       return;
     }
-    
-const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Content-Type':'multipart/form-data'}})
 
-    alert('Application Submited Success fully')
-    // Show success message
-    setFormStatus({ submitted: true, error: false });
-    
-    // Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      jobProfile: '',
-      resume: null
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => {
+      formDataToSend.append(key, formData[key]);
     });
-    
-    // Reset file input
-    document.getElementById('resumeUpload').value = '';
+
+    try {
+      setLoading(true);
+
+      await axios.post(`${backendUrl}/job`, formDataToSend, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      toast.success("Application submitted successfully!");
+      setFormStatus({ submitted: true, error: false });
+
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        jobProfile: "",
+        resume: null,
+      });
+
+      document.getElementById("resumeUpload").value = "";
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "Failed to submit application");
+      setFormStatus({ submitted: false, error: true });
+    } finally {
+      setLoading(false);
+    }
   };
   
   return (
@@ -264,13 +280,16 @@ const res = await axios.post(`${backendUrl}/career/save`,formData,{headers:{'Con
                 </div>
                 
                 <div className="flex justify-end">
-                  <button 
-                    type="submit" 
-                    className="px-8 cursor-pointer py-3 bg-neutral-950 text-white font-medium rounded-lg shadow hover:bg-neutral-700 transition duration-300 focus:ring-4 focus:ring-neutral-200"
-                  >
-                    Submit Application
-                  </button>
-                </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className={`px-8 py-3 font-medium rounded-lg shadow transition duration-300 focus:ring-4 focus:ring-neutral-200 ${
+              loading ? "bg-gray-400 cursor-not-allowed" : "bg-neutral-950 text-white hover:bg-neutral-700"
+            }`}
+          >
+            {loading ? "Submitting..." : "Submit Application"}
+          </button>
+        </div>
               </form>
             )}
           </div>

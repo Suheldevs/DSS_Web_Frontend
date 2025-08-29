@@ -124,7 +124,7 @@ const TeamPage = () => {
         <div className="max-w-7xl mx-auto">
           {/* Team Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member) => (
+            {teamMembers?.map((member) => (
               <div
                 key={member.id}
                 className="group relative bg-white  shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
@@ -134,13 +134,14 @@ const TeamPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
                   {/* Profile Image Placeholder */}
-                  <div className="">
+                  <div className=" h-full">
                     <img
                       src={
                         member?.image?.public_url ||
                         `${import.meta.env.VITE_BACKEND}/${member?.image?.url}`
                       }
                       alt="Team Member Image"
+                      className=" h-full "
                     />
                   </div>
                 </div>
