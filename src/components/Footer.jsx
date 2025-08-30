@@ -74,7 +74,7 @@ await addSubscriber({formData:{email}}).unwrap()
       toast.success("Email submitted successfully");
       setEmail("")
     } catch (err) {
-      toast.error("Something went wrong");
+      toast.error(`${err?.messsage || err?.data?.message || "Something went wrong" }`);
       console.error(err);
     }
   };

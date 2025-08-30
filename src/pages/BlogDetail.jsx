@@ -51,21 +51,21 @@ const BlogDetail = () => {
             <img
               src={blog?.image?.public_url || `${backendUrl}/${blog?.image?.url}`}
               alt={blog.title}
-              className="w-full h-[400px] object-cover shadow-md"
+              className="w-full h-[400px] rounded-2xl object-cover shadow-md"
             />
             <div className="flex absolute gap-4 top-5 left-3 justify-between">
-              <p className="text-gray-50 text-sm bg-gray-500 px-2 py-2 rounded-full">
+              <p className="text-gray-900 text-sm bg-white px-2 py-2 rounded-full">
                 <Calendar className="inline-flex mr-1 h-4 w-4" />
                 {formatDate(blog.updatedAt)}
               </p>
-              <div className="flex justify-center items-center bg-sky-500 px-2 py-1 rounded-full text-xs font-medium text-white">
+              <div className="flex justify-center items-center bg-green-500 px-2 py-1 rounded-full text-xs font-medium text-white">
                 <Tag className="h-4 w-4 mr-1 inline-flex" />
                 {blog.category || "Uncategorized"}
               </div>
             </div>
           </div>
 
-          <h1 className="lg:text-2xl mt-4 text-xl font-semibold">
+          <h1 className="lg:text-2xl lg:mt-6 mt-4 text-xl font-semibold">
             {blog.title}
           </h1>
           <div
@@ -76,7 +76,7 @@ const BlogDetail = () => {
           {/* Back to Blogs Button */}
           <Link
             to="/blog"
-            className="mt-6 inline-block bg-sky-600 text-white px-6 py-3 hover:bg-[#7A5F4D] transition-all duration-300"
+            className="mt-4 inline-block bg-green-600 text-white px-6 py-3 hover:bg-green-600 rounded-xl transition-all duration-300"
           >
             Back to Blogs
           </Link>
@@ -98,7 +98,7 @@ const BlogDetail = () => {
                     `${backendUrl}/${relatedBlog?.image?.url}`
                   }
                   alt={relatedBlog.title}
-                  className="w-full h-28 object-cover"
+                  className="w-full h-28 rounded-xl object-cover"
                 />
                 <p className="text-gray-500 text-sm mt-2">
                   {formatDate(relatedBlog.updatedAt)}

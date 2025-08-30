@@ -164,7 +164,7 @@ export default function BlogSection() {
                     }px)`,
                   }}
                 >
-                  <div className="bg-white flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group rounded-md">
+                  <div className="bg-white flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group">
                     {/* Image section - matching BlogPage height */}
                     <div className="h-52 overflow-hidden">
                       <img

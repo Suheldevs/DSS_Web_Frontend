@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getUserMeta } from "./getUserMeta"; 
 import axios from "axios";
 
 const CookieBanner = () => {
   const [consentGiven, setConsentGiven] = useState(false);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
-  const giveConsent = async () => {
-    setConsentGiven(true);
-    localStorage.setItem("cookieConsent", "true");
+    
 useEffect(() => {
     const storedConsent = localStorage.getItem("cookieConsent");
     if (storedConsent === "true") {
       setConsentGiven(true);
     }
   }, []);
+
+  const giveConsent = async () => {
+    setConsentGiven(true);
+    localStorage.setItem("cookieConsent", "true")
     try {
       const userData = await getUserMeta();
       console.log("Raw User Data:", userData);
-
       const formattedData = {
         visitorId: userData.visitorId || "",
         city: userData.city || "",

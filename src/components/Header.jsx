@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ChartNoAxesColumnDecreasing, ChartNoAxesGantt, ChevronDown, Menu, MenuIcon, X } from "lucide-react";
 import logo from "../assets/DSS_logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [menu, setMenu] = useState(false)
+  const navigate = useNavigate()
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -93,6 +94,9 @@ setMenu(false)
       setActiveDropdown(null)
     },400)
   }
+  const handleLogoClick = ()=>{
+    navigate('/')
+  }
   return (
     <div className="">
       <header
@@ -110,8 +114,9 @@ setMenu(false)
               <img
                 src={logo}
                 alt="Logo"
-                className={`${
-                  isScrolled ? "lg:h-17 h-12" : "lg:h-26 h-16"
+                onClick={handleLogoClick}
+                className={` cursor-pointer ${
+                  isScrolled ? "lg:h-17  h-12" : "lg:h-26 h-16"
                 }  z-20 transition-all duration-700 ease-in-out`}
               />
 
@@ -172,8 +177,8 @@ setMenu(false)
                       {item.dropdown.map((subItem, subIndex) => (
                         <Link
                         key={subIndex}
-                          to={subItem.path}
-                          className="block px-4 py-1.5 tracking-wide text-gray-700 hover:tracking-wider hover:bg-blue-50 hover:text-black-600 transition-colors duration-200 text-sm font-medium"
+                          to={subItem?.path}
+                          className={`   border-b border-gray-100 block px-4 py-1.5 tracking-wide text-gray-700 hover:tracking-wider hover:bg-blue-50 hover:text-black-600 transition-colors duration-200 text-sm font-medium`}
                         >
                           {subItem.name}
                         </Link>
@@ -263,6 +268,7 @@ setMenu(false)
                           activeDropdown === index ? null : index
                         );
                       }
+                      setIsMobileMenuOpen(!isMobileMenuOpen)
                     }}
                   >
                     <span>{item.name}</span>
@@ -281,7 +287,8 @@ setMenu(false)
                       {item.dropdown.map((subItem, subIndex) => (
                         <Link
                           key={subIndex.path}
-                          path="#"
+                       to={subItem.path}
+                          onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
                           className="block pl-4 py-1 bg-gray-100 text-gray-600 hover:text-green-600 transition-colors duration-200 text-sm"
                         >
                           {subItem.name}

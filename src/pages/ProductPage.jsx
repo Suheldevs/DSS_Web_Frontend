@@ -3,29 +3,26 @@ import { Search, Grid, Eye, Monitor } from 'lucide-react';
 import Breadcrumb from '../components/Breadcrumb';
 import { Link } from 'react-router-dom';
 import { useGetAllProductsQuery } from '../api/product.api';
+import Loader from '../utils/Loader';
 
 const ProductPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const { data: apiResponse, isLoading, isError } = useGetAllProductsQuery();
 
-  // Extract products from API response
   const products = apiResponse?.data || [];
 
-  // Generate dynamic categories from actual product data
   const categories = useMemo(() => {
     if (!products.length) {
       return [{ id: 'all', name: 'All Products', count: 0 }];
     }
 
-    // Count products by category
     const categoryCount = products.reduce((acc, product) => {
       const category = product.category || 'Uncategorized';
       acc[category] = (acc[category] || 0) + 1;
       return acc;
     }, {});
 
-    // Create categories array
     const dynamicCategories = [
       { id: 'all', name: 'All Products', count: products.length }
     ];
@@ -41,7 +38,6 @@ const ProductPage = () => {
     return dynamicCategories;
   }, [products]);
 
-  // Filter products based on selected category and search term
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
       const matchesCategory = selectedCategory === 'all' || 
@@ -52,17 +48,7 @@ const ProductPage = () => {
     });
   }, [products, selectedCategory, searchTerm]);
 
-  const getTagColor = (index) => {
-    const colors = [
-      'bg-green-100 text-green-800',
-      'bg-blue-100 text-blue-800',
-      'bg-teal-100 text-teal-800',
-      'bg-emerald-100 text-emerald-800',
-      'bg-cyan-100 text-cyan-800',
-      'bg-sky-100 text-sky-800'
-    ];
-    return colors[index % colors.length];
-  };
+
 
 
   const getProductImage = (product) => {
@@ -73,13 +59,6 @@ const ProductPage = () => {
     return 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop';
   };
 
-
-  const stripHtmlTags = (html) => {
-    if (!html) return '';
-    const div = document.createElement('div');
-    div.innerHTML = html;
-    return div.textContent || div.innerText || '';
-  };
 
   const ProductCard = ({ product }) => (
     <div className="bg-white rounded-sm shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
@@ -98,7 +77,7 @@ const ProductPage = () => {
         <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <Link 
             to={`/products/${product.slug}`}
-            className="bg-white/90 backdrop-blur-sm text-green-700 px-4 py-2 rounded-lg hover:bg-white transition-colors font-medium flex items-center space-x-2"
+            className="bg-gradient-to-r from-green-500 to-blue-600 backdrop-blur-sm text-white px-4 py-2 rounded-lg hover:bg-white transition-colors font-medium flex items-center space-x-2"
           >
             <Eye className="w-4 h-4" />
             <span>View Details</span>
@@ -149,12 +128,7 @@ const ProductPage = () => {
           ]}
         />
         <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-teal-50">
-          <div className="max-w-7xl mx-auto px-4 py-8">
-            <div className="text-center py-12">
-              <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-              <p className="text-gray-600">Loading products...</p>
-            </div>
-          </div>
+          <Loader/>
         </div>
       </>
     );

@@ -24,7 +24,7 @@ function Breadcrumb({ title, items }) {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
+              className="text-2xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
             >
               {title}
             </motion.h1>
