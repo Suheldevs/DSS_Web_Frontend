@@ -39,7 +39,7 @@ const Footer = () => {
     { name: 'About Us', href: '/about/story' },
     { name: 'Careers', href: '/career' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Admin Login', href: '#admin' }
+    { name: 'Admin Login', href: 'https://dss-web-admin.netlify.app' }
   ];
 
     useEffect(() => {

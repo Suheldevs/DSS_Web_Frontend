@@ -59,7 +59,7 @@ const TestimonialSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-4"></div>
 
         </div>
-            <iframe title="Dss" src='https://widgets.sociablekit.com/google-reviews/iframe/25593844' className='w-full h-[24rem]'></iframe>
+            <iframe title="Dss" src='https://widgets.sociablekit.com/google-reviews/iframe/25593886' className='w-full h-[24rem]'></iframe>
 
        
       </div>

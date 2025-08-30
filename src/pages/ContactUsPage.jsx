@@ -94,7 +94,7 @@ const ContactUsPage = () => {
   };
 
   const handleFileChange = (e) => {
-    const files = Array.from(e.target.files); 
+    const files = Array.from(e.target.files);
     const allowedTypes = [
       "image/jpeg",
       "image/jpg",
@@ -290,43 +290,131 @@ const ContactUsPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Contact Info - Left Side */}
-            <div className="lg:col-span-1">
-              <div className="space-y-3">
-                {contactInfo.map((info, index) => {
-                  const IconComponent = info.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="border-t-4 border-green-500 relative z-20 bg-white rounded-md p-3 shadow-md hover:shadow-lg transition-all duration-300"
-                    >
-                      <div
-                        className="absolute inset-0 overflow-hidden"
-                        style={{
-                          backgroundImage: `url(${pattern})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                          opacity: 0.6,
-                          zIndex: -1,
-                        }}
-                      ></div>
-                      <div
-                        className={`w-10 h-10 ${info.color} bg-opacity-10 rounded-md flex items-center justify-center mb-2`}
-                      >
-                        <IconComponent className={`${info.color}`} size={20} />
-                      </div>
-                      <h3 className="text-base font-semibold text-gray-800 mb-2">
-                        {info.title}
-                      </h3>
-                      <div className="space-y-1">
-                        {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-gray-600 text-sm">
-                            {detail}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
+            <div className="flex flex-col gap-3">
+              {/* Location */}
+              <div className="border-t-4 border-green-500 relative z-20 bg-white rounded-md p-3 shadow-md hover:shadow-lg transition-all duration-300">
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${pattern})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    opacity: 0.6,
+                    zIndex: -1,
+                  }}
+                ></div>
+                <div className="w-10 h-10 text-emerald-600 bg-opacity-10 rounded-md flex items-center justify-center mb-2">
+                  <MapPin className="text-emerald-600" size={20} />
+                </div>
+                <h3 className="text-base font-semibold text-gray-800 mb-2">
+                  Our Location
+                </h3>
+                <div className="space-y-1">
+                  <a
+                    href="https://maps.app.goo.gl/FvbzrGGVEzE9Ueh67"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 text-sm hover:underline"
+                  >
+                    Digital Signage Solutions-Near Yamaha Showroom
+                    Chinhat Tiraha, Faizabad Road, Lucknow-226028
+                  </a>
+                 
+                </div>
+              </div>
+
+              {/* Call Us */}
+              <div className="border-t-4 border-green-500 relative z-20 bg-white rounded-md p-3 shadow-md hover:shadow-lg transition-all duration-300">
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${pattern})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    opacity: 0.6,
+                    zIndex: -1,
+                  }}
+                ></div>
+                <div className="w-10 h-10 text-blue-600 bg-opacity-10 rounded-md flex items-center justify-center mb-2">
+                  <Phone className="text-blue-600" size={20} />
+                </div>
+                <h3 className="text-base font-semibold text-gray-800 mb-2">
+                  Call Us
+                </h3>
+                <a
+                  href="tel:6386901011"
+                  className="text-gray-600 text-sm hover:underline"
+                >
+                  +91-6386901011
+                </a>
+              </div>
+
+              {/* Email Us */}
+              <div className="border-t-4 border-green-500 relative z-20 bg-white rounded-md p-3 shadow-md hover:shadow-lg transition-all duration-300">
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${pattern})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    opacity: 0.6,
+                    zIndex: -1,
+                  }}
+                ></div>
+                <div className="w-10 h-10 text-purple-600 bg-opacity-10 rounded-md flex items-center justify-center mb-2">
+                  <Mail className="text-purple-600" size={20} />
+                </div>
+                <h3 className="text-base font-semibold text-gray-800 mb-2">
+                  Email Us
+                </h3>
+                <div className="space-y-1">
+                  <a
+                    href="mailto:info@dssup.co.in"
+                    className="text-gray-600 text-sm hover:underline"
+                  >
+                    info@dssup.co.in
+                  </a>
+                  <br/>
+                  <a
+                    href="mailto:sales@dssup.co.in"
+                    className="text-gray-600 text-sm hover:underline"
+                  >
+                    sales@dssup.co.in
+                  </a>
+                  <br/>
+                  <a
+                    href="mailto:service@dssup.co.in"
+                    className="text-gray-600 text-sm hover:underline"
+                  >
+                    service@dssup.co.in
+                  </a>
+                </div>
+              </div>
+
+              {/* Business Hours */}
+              <div className="border-t-4 border-green-500 relative z-20 bg-white rounded-md p-3 shadow-md hover:shadow-lg transition-all duration-300">
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${pattern})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    opacity: 0.6,
+                    zIndex: -1,
+                  }}
+                ></div>
+                <div className="w-10 h-10 text-orange-600 bg-opacity-10 rounded-md flex items-center justify-center mb-2">
+                  <Clock className="text-orange-600" size={20} />
+                </div>
+                <h3 className="text-base font-semibold text-gray-800 mb-2">
+                  Business Hours
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Mon - Sat: 9:00 AM - 7:00 PM
+                </p>
+                <p className="text-gray-600 text-sm">
+                  Sunday: 10:00 AM - 5:00 PM
+                </p>
               </div>
 
               {/* Google Map */}
@@ -492,9 +580,15 @@ const ContactUsPage = () => {
                       {formData.sitePhoto && formData.sitePhoto.length > 0 ? (
                         <div className="space-y-2">
                           {formData.sitePhoto.map((file, index) => (
-                            <div key={index} className="flex items-center justify-between bg-emerald-50 p-3 rounded-md">
+                            <div
+                              key={index}
+                              className="flex items-center justify-between bg-emerald-50 p-3 rounded-md"
+                            >
                               <div className="flex items-center space-x-3">
-                                <Upload className="text-emerald-600" size={20} />
+                                <Upload
+                                  className="text-emerald-600"
+                                  size={20}
+                                />
                                 <span className="text-sm text-emerald-800">
                                   {file.name}
                                 </span>

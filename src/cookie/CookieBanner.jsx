@@ -58,10 +58,7 @@ useEffect(() => {
         <div className="text-gray-800 text-sm sm:text-base max-w-3xl mb-2 sm:mb-0">
           <p>
             We use cookies to enhance your experience, analyze site traffic, and
-            serve personalized content.{" "}
-            <span className="underline cursor-pointer hover:text-blue-600">
-              Learn more
-            </span>
+            serve personalized content.
           </p>
         </div>
 
