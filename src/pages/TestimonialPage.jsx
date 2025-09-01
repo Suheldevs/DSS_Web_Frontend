@@ -113,7 +113,7 @@ const TestimonialsPage = () => {
       <div className="max-w-7xl mx-auto">
         
 <div >
-  <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25593886' className='w-full h-screen' ></iframe>
+  <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25594313' className='w-full h-screen' ></iframe>
 </div>
       </div>
     </div>
