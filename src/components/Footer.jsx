@@ -241,7 +241,7 @@ await addSubscriber({formData:{email}}).unwrap()
                   >
                     <img
                       src={cclogo}
-                      className="lg:w-24 md:w-20 w-20 transition transform hover:scale-105"
+                      className="lg:w-24 md:w-20 w-18 mt-2 md:mt-0 transition transform hover:scale-105"
                       alt="CodeCrafter Logo"
                     />
                   </Link>
@@ -257,7 +257,7 @@ await addSubscriber({formData:{email}}).unwrap()
       {/* Scroll to Top Button */}
 {isScrolled &&   <button 
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 z-50"
+        className="fixed bottom-8 right-8 lg:w-12 w-10 h-10 lg:h-12 bg-gradient-to-r from-green-400 to-blue-400 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 z-50"
       >
         <ChevronUp className="h-5 w-5 " />
       </button> }

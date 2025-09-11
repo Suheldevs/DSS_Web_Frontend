@@ -64,12 +64,12 @@ useEffect(() => {
 
         {/* Buttons */}
         <div className="flex gap-5 shrink-0">
-          <button
+          {/* <button
             onClick={declineConsent}
             className="bg-gray-200 text-gray-800 hover:bg-gray-300 text-sm px-4 py-1.5 rounded-md transition-colors"
           >
             Decline
-          </button>
+          </button> */}
           <button
             onClick={giveConsent}
             className="bg-green-600 cursor-pointer text-white hover:bg-green-700 text-sm px-4 py-1.5 rounded-md transition-colors"

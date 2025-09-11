@@ -3,6 +3,7 @@
 body{
 	font-family: "Bricolage Grotesque", sans-serif;
 	scroll-behavior: smooth;
+  max-width: 100vw;
 }
 
 

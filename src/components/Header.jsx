@@ -268,7 +268,7 @@ setMenu(false)
                           activeDropdown === index ? null : index
                         );
                       }
-                      setIsMobileMenuOpen(!isMobileMenuOpen)
+                     {!item.dropdown? setIsMobileMenuOpen(!isMobileMenuOpen):null} 
                     }}
                   >
                     <span>{item.name}</span>
@@ -300,7 +300,7 @@ setMenu(false)
               ))}
 
               {/* Mobile CTA Button */}
-              <Link to='/contact' className="w-full block mt-4 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300">
+              <Link onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)} to='/contact' className="w-full block mt-4 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300">
                 Get a Quote
               </Link>
             </div>
